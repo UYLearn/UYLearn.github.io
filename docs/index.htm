@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="UYL_logo (1).png">
+  <title>UYLearn - Your Learning Partner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- Logo -->
+    <a href="index.htm" class="logo">
+        <img src="Logo.jpeg" alt="UYLearn Logo">
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Why Choose Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <!-- CTA Button -->
+        <a href="#contact-section" class="cta-button">Enroll Now</a>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+</header>
+
+<script>
+  
+  
+function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    const hamburger = document.querySelector(".hamburger");
+
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("open");
+}
+
+
+
+
+</script>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="slider">
+        <div class="slide active" style="background-image: url('img/Cloud\ Background.jpg');"></div>
+        <div class="slide" style="background-image: url('img/Sccm\ Bg.jpg');"></div>
+        <div class="slide" style="background-image: url('img/eth.jpg');"></div>
+        <div class="slide" style="background-image: url('img/data\ .jpg');"></div>
+    </div>
+       
+    <div class="container">
+        <h1>Welcome to <span class="highlight">UYLearn</span></h1>
+        <p id="typing-text"></p>
+    </div>
+</section>
+
+<script>
+    // Typing Effect
+    const text = "Empowering your future with cutting-edge courses.";
+    let index = 0;
+    function typeEffect() {
+        document.getElementById("typing-text").textContent = text.slice(0, index);
+        index++;
+        if (index <= text.length) {
+            setTimeout(typeEffect, 100);
+        }
+    }
+    document.addEventListener("DOMContentLoaded", typeEffect);
+    
+
+    // Background Slider
+    document.addEventListener("DOMContentLoaded", function () {
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+        function changeSlide() {
+            slides.forEach(slide => slide.classList.remove("active"));
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }
+
+        setInterval(changeSlide, 5000); // Change slide every 5 seconds
+    });
+</script>
+
+  <!-- About Us Section -->
+  <section class="about-us section">
+    <div class="container">
+      <h2 class="section-title">About <span class="highlight">UYLearn</span></h2>
+      <p class="about-text">
+        UYLearn is a leading online education platform offering courses in
+        <span class="highlight">Cloud Computing, Data Science, Ethical Hacking, and SCCM.</span>
+        Our mission is to provide high-quality education and empower students to achieve their career goals.
+      </p>
+  
+      <div class="stats">
+        <div class="stat">
+          <h3 class="counter" data-target="5000">0</h3>
+          <p>Students Enrolled</p>
+        </div>
+        <div class="stat">
+          <h3 class="counter" data-target="50">0</h3>
+          <p>Expert Trainers</p>
+        </div>
+        <div class="stat">
+          <h3 class="counter" data-target="95">0</h3>
+          <p>Placement Rate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Counter Animation for Stats
+    const counters = document.querySelectorAll(".counter");
+    counters.forEach((counter) => {
+      counter.innerText = "0";
+      const updateCounter = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / 100;
+        if (count < target) {
+          counter.innerText = `${Math.ceil(count + increment)}`;
+          setTimeout(updateCounter, 50);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCounter();
+    });
+  </script>
+
+  <!-- Courses Section -->
+  <section class="courses section">
+    <div class="container">
+        <h2 class="section-title">Courses We Offer</h2>
+        <div class="course-grid">
+            <a href="Courses/Cloud/CLindex.html" class="course-card-link">
+                <div class="course-card">
+                    <img src="img/Cloud.jpeg" alt="Cloud Computing">
+                    <h3>Cloud Computing</h3>
+                    <p>Learn cloud technologies like AWS, Azure, and Google Cloud.</p>
+                    <span class="learn-more">Learn More</span>
+                </div>
+            </a>
+            <a href="Courses/Data Science/DScience.html" class="course-card-link">
+                <div class="course-card">
+                    <img src="img/Data Science.jpeg" alt="Data Science">
+                    <h3>Data Science</h3>
+                    <p>Master data analysis, machine learning, and big data tools.</p>
+                    <span class="learn-more">Learn More</span>
+                </div>
+            </a>
+            <a href="Courses/Ethical Hacking/ETHacking.html" class="course-card-link">
+                <div class="course-card">
+                    <img src="img/ETH.jpeg" alt="Ethical Hacking">
+                    <h3>Ethical Hacking</h3>
+                    <p>Become a certified ethical hacker and secure systems.</p>
+                    <span class="learn-more">Learn More</span>
+                </div>
+            </a>
+            <a href="Courses/Sccm/SCCM.html" class="course-card-link">
+                <div class="course-card">
+                    <img src="img/SCCM.jpeg" alt="SCCM">
+                    <h3>SCCM</h3>
+                    <p>Learn System Center Configuration Manager for IT professionals.</p>
+                    <span class="learn-more">Learn More</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us?</h2>
+      <div class="features">
+        <div class="feature">
+          <img src="img/Certification (1).jpeg" alt="Certifications">
+          <h3>Certifications</h3>
+          <p>Globally recognized certifications to boost your career.</p>
+        </div>
+        <div class="feature">
+          <img src="img/expert trainees.jpeg" alt="Expert Trainers">
+          <h3>Expert Trainers</h3>
+          <p>Learn from industry experts with real-world experience.</p>
+        </div>
+        <div class="feature">
+          <img src="img/flexible learning.jpeg" alt="Flexible Learning">
+          <h3>Flexible Learning</h3>
+          <p>Online and offline learning options to suit your schedule.</p>
+        </div>
+        <div class="feature">
+          <img src="img/E.jpeg" alt="Job Assistance">
+          <h3>Job Assistance</h3>
+          <p>Get placement support and career guidance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials section">
+    <div class="container">
+        <h2 class="section-title">What Our Students Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-card">
+                <img src="img/Screenshot 2024-11-19 102830.png" alt="Student 1">
+                <p>"UYLearn helped me land my dream job in cloud computing. Highly recommended!"</p>
+                <h4>Lavin</h4>
+            </div>
+            <div class="testimonial-card">
+                <img src="img/Rahul.png" alt="Student 2">
+                <p>"The Data Science course was comprehensive and practical. Great learning experience!"</p>
+                <h4>Rahul</h4>
+            </div>
+            <div class="testimonial-card">
+                <img src="appova.jpg" alt="Student 3">
+                <p>"Ethical Hacking course was challenging but worth it. Thanks, UYLearn!"</p>
+                <h4>Apoorva</h4>
+            </div>
+        </div>
+        <!-- Dots for navigation -->
+        <div class="testimonial-dots"></div>
+    </div>
+</section>
+
+
+  <!-- Contact & Footer Section -->
+  <section id="contact-section" class="contact section">
+    <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="contact-description">We'd love to hear from you! Fill out the form below, and we’ll get back to you shortly.</p>
+
+        <div class="contact-form">
+          <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSe6L3ioIJnyb59J-nNgZHhYjeCbcrkasc-ggjIB1p8t2dHYyg/formResponse" method="POST" target="hidden_iframe">
+            <div class="input-group">
+                    <input type="text" id="name" name="entry.2005620554" required placeholder=" ">
+                    <label for="name">Your Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" name="entry.1045781291" required placeholder=" ">
+                    <label for="email">Your Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="tel" id="phone" name="entry.1166974658" required placeholder=" ">
+                    <label for="phone">Your Phone</label>
+                </div>
+
+                <!-- Courses Dropdown -->
+                <div class="input-group">
+                  <label for="course">Select Course</label>
+                  <div class="custom-select">
+                      <select id="course" name="entry.478867909" required>
+                          <option value="" disabled selected>Select a Course</option>
+                          <option value="Cloud">Cloud</option>
+                          <option value="Data Science">Data Science</option>
+                          <option value="Ethical Hacking">Ethical Hacking</option>
+                          <option value="SCCM">SCCM (System Center Configuration Manager)</option>
+                          <option value="Other">Other</option>
+                      </select>
+                  </div>
+              </div>
+              
+                <div class="input-group">
+                    <textarea id="message" name="entry.839337160" rows="5" required placeholder=" "></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Invisible iframe to prevent Google Forms from opening -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent default form submission
+  
+  const form = e.target;
+  const formData = new FormData(form);
+  
+  fetch(form.action, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors" // Prevent Google Forms redirection
+  }).then(() => {
+    alert("Thank you! Your message has been sent.");
+    form.reset(); // Clear the form after submission
+  }).catch(error => console.error("Error!", error));
+});
+
+    document.querySelector('.cta-button').addEventListener('click', function(event) {
+  event.preventDefault(); 
+  document.querySelector('#contact-section').scrollIntoView({ behavior: 'smooth' });
+});
+
+  </script>
+
+  <script>
+    // Floating Labels Effect
+    document.querySelectorAll(".input-group input, .input-group textarea").forEach((input) => {
+      input.addEventListener("focus", () => input.parentNode.classList.add("focused"));
+      input.addEventListener("blur", () => {
+        if (!input.value) {
+          input.parentNode.classList.remove("focused");
+        }
+      });
+    });
+  
+  </script>
+
+  <script>
+     // Dark Mode Toggle
+     const body = document.body;
+    const darkModeToggle = document.createElement('div');
+    darkModeToggle.innerHTML = '🌙';
+    darkModeToggle.style.position = 'fixed';
+    darkModeToggle.style.bottom = '20px';
+    darkModeToggle.style.right = '20px';
+    darkModeToggle.style.cursor = 'pointer';
+    darkModeToggle.style.fontSize = '24px';
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      darkModeToggle.innerHTML = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+    document.body.appendChild(darkModeToggle);
+  </script>
+
+<footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Logo & About -->
+        <div class="footer-section">
+          <h3>UYLearn</h3>
+          <p>Your gateway to learning Cloud Computing, Data Science, Ethical Hacking, and SCCM.</p>
+        </div>
+  
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Courses -->
+        <div class="footer-section">
+          <h3>Our Courses</h3>
+          <ul>
+            <li><a href="Courses/Cloud/CLindex.html">Cloud Computing</a></li>
+            <li><a href="Courses/Data Science/DScience.html">Data Science</a></li>
+            <li><a href="Courses/Ethical Hacking/ETHacking.html">Ethical Hacking</a></li>
+            <li><a href="Courses/Sccm/SCCM.html">SCCM</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Gurugram, India</li>
+            <li><i class="fas fa-phone"></i> +91 9220698666</li>
+            <li><i class="fas fa-envelope"></i> UYLearn@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Social Media Links -->
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+  
+      <p class="footer-bottom">&copy; 2025 UYLearn | All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+  <audio id="bg-music" loop>
+    <source src="UYL.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    window.addEventListener("load", () => {
+        const audio = document.getElementById("bg-music");
+        audio.volume = 500; // Set volume (optional)
+        audio.play().catch(error => {
+            console.log("Autoplay blocked. User interaction needed.");
+        });
+    });
+</script>
+
+</body>
+</html>

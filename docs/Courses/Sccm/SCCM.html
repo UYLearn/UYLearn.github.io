@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="UYL_logo (1).png">
+  <title>SCCM</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #1e1e1e;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00a8e8;
+    }
+
+    /* Header */
+    header {
+      background: rgba(30, 30, 30, 0.9);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00a8e8;
+    }
+
+    header nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #00a8e8;
+    }
+
+    /* Landing Page */
+    .landing-page {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url(Sccm\ Bg.jpg) no-repeat center center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .landing-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 30, 30, 0.7);
+    }
+
+    .landing-page h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #00a8e8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .typewriter {
+      font-size: 1.5rem;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+      border-right: 2px solid #00a8e8;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.75s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    /* SCCM Features Section */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(0, 168, 232, 0.1);
+      border: 1px solid #00a8e8;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #00a8e8;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose {
+      background: rgba(0, 168, 232, 0.1);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .why-choose p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(30, 30, 30, 0.9);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer .social-icons img {
+      width: 30px;
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+    }
+
+    footer .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    footer .copyright {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">SCCM</div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#why-choose">Why Choose Us?</a>
+        <a href="#footer">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Landing Page -->
+  <section class="landing-page">
+    <div class="container">
+      <h1>Welcome to SCCM</h1>
+      <div class="typewriter" id="typewriter"></div>
+    </div>
+  </section>
+  <script></script>
+
+  <!-- SCCM Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">SCCM Features</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>SCCM Client Management</h3>
+          <p>Efficient deployment, configuration, and troubleshooting of SCCM clients.</p>
+        </div>
+        <div class="card">
+          <h3>Software Deployment</h3>
+          <p>Seamless application packaging, distribution, and deployment management.</p>
+        </div>
+        <div class="card">
+          <h3>OS Deployment (OSD)</h3>
+          <p>Automated OS imaging, deployment, and task sequence management.</p>
+        </div>
+        <div class="card">
+          <h3>Inventory and Asset Management</h3>
+          <p>Track, manage, and report on hardware and software assets.</p>
+        </div>
+        <div class="card">
+          <h3>Role-Based Administration and Security</h3>
+          <p>Manage user roles, permissions, and secure SCCM access.</p>
+        </div>
+        <div class="card">
+          <h3>Troubleshooting SCCM</h3>
+          <p>Diagnose, resolve, and prevent SCCM issues efficiently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="why-choose" class="why-choose section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us?</h2>
+      <p>We provide expert SCCM services to streamline your IT infrastructure, enhance security, and improve efficiency. Our team ensures seamless deployment, management, and troubleshooting of SCCM solutions.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61574980227966" target="">
+          <img src="fb.jpg" alt="">
+        </a>
+        <a href="https://www.instagram.com/uylearn/" target="">
+          <img src="insta.jpg" alt="">
+        </a>
+        <a href="https://www.linkedin.com" target="">
+          <img src="linkdin.jpg" alt="">
+        </a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 SCCM Hub. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Typewriter Animation
+    const typewriterText = "Empowering IT with System Center Configuration Manager";
+    const typewriterElement = document.getElementById('typewriter');
+    let index = 0;
+
+    function typeWriter() {
+      if (index < typewriterText.length) {
+        typewriterElement.textContent += typewriterText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+
+    typeWriter();
+  </script>
+</body>
+</html>
