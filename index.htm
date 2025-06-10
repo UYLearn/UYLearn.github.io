@@ -244,52 +244,67 @@ function toggleMenu() {
 
   <!-- Contact & Footer Section -->
   <section id="contact-section" class="contact section">
-    <div class="container">
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="contact-description">We'd love to hear from you! Fill out the form below, and we’ll get back to you shortly.</p>
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="contact-description">We'd love to hear from you! Fill out the form below, and we’ll get back to you shortly.</p>
 
-        <div class="contact-form">
-          <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSe6L3ioIJnyb59J-nNgZHhYjeCbcrkasc-ggjIB1p8t2dHYyg/formResponse" method="POST" target="hidden_iframe">
-            <div class="input-group">
-                    <input type="text" id="name" name="entry.2005620554" required placeholder=" ">
-                    <label for="name">Your Name</label>
-                </div>
-
-                <div class="input-group">
-                    <input type="email" id="email" name="entry.1045781291" required placeholder=" ">
-                    <label for="email">Your Email</label>
-                </div>
-
-                <div class="input-group">
-                    <input type="tel" id="phone" name="entry.1166974658" required placeholder=" ">
-                    <label for="phone">Your Phone</label>
-                </div>
-
-                <!-- Courses Dropdown -->
-                <div class="input-group">
-                  <label for="course">Select Course</label>
-                  <div class="custom-select">
-                      <select id="course" name="entry.478867909" required>
-                          <option value="" disabled selected>Select a Course</option>
-                          <option value="Cloud">Cloud</option>
-                          <option value="Data Science">Data Science</option>
-                          <option value="Ethical Hacking">Ethical Hacking</option>
-                          <option value="SCCM">SCCM (System Center Configuration Manager)</option>
-                          <option value="Other">Other</option>
-                      </select>
-                  </div>
-              </div>
-              
-                <div class="input-group">
-                    <textarea id="message" name="entry.839337160" rows="5" required placeholder=" "></textarea>
-                    <label for="message">Your Message</label>
-                </div>
-
-                <button type="submit" class="send-btn">Send Message</button>
-            </form>
+    <div class="contact-form">
+      <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSe6L3ioIJnyb59J-nNgZHhYjeCbcrkasc-ggjIB1p8t2dHYyg/formResponse" method="POST" target="hidden_iframe">
+        
+        <div class="input-group">
+          <input type="text" id="name" name="entry.2005620554" required placeholder=" ">
+          <label for="name">Your Name</label>
         </div>
+
+        <div class="input-group">
+          <input type="email" id="email" name="entry.1045781291" required placeholder=" ">
+          <label for="email">Your Email</label>
+        </div>
+
+        <div class="input-group">
+          <input type="tel" id="phone" name="entry.1166974658" required placeholder=" ">
+          <label for="phone">Your Phone</label>
+        </div>
+
+        <!-- Course Dropdown -->
+        <div class="input-group">
+          <label for="course">Select Course</label>
+          <div class="custom-select">
+            <select id="course" name="entry.478867909" required>
+              <option value="" disabled selected></option>
+              <option value="Cloud">Cloud</option>
+              <option value="Data Science">Data Science</option>
+              <option value="Ethical Hacking">Ethical Hacking</option>
+              <option value="SCCM">SCCM (System Center Configuration Manager)</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Course Type Dropdown -->
+        <div class="input-group">
+          <label for="courseType">Course Type</label>
+          <div class="custom-select">
+            <select id="courseType" name="entry.2146245931" required>
+              <option value="" disabled selected></option>
+              <option value="Seminar">Seminar</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Full Training">Full Training</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <textarea id="message" name="entry.839337160" rows="5" required placeholder=" "></textarea>
+          <label for="message">Your Message</label>
+        </div>
+
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
     </div>
+  </div>
 </section>
+
 
 <!-- Invisible iframe to prevent Google Forms from opening -->
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
@@ -401,7 +416,7 @@ function toggleMenu() {
         <a href="https://www.instagram.com/uylearn/" target="_blank">
           <img src="insta.jpg" alt="Instagram">
         </a>
-        <a href="https://www.linkedin.com" target="_blank">
+        <a href="http://www.linkedin.com/in/until-you-learn-39000b364" target="_blank">
           <img src="linkdin.jpg" alt="LinkedIn">
         </a>
       </div>

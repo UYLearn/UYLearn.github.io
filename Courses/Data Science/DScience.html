@@ -46,44 +46,51 @@ html, body {
     }
 
     /* Header */
-    header {
-    background-color: #1a1a2e;
-    color: #fff;
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+.site-header {
+  background-color: #16213e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00c3ff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #0078d4;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
-nav a:hover {
-    color: #00c3ff;
+.main-nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
+
+.main-nav a:hover {
+  color: #0078d4;
+}
+
 
 @media (max-width: 768px) {
     .container {
@@ -377,10 +384,13 @@ nav a:hover {
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="logo">Data Science Hub</div>
-      <nav>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="../../index.htm" class="logo">
+        <img src="UYL_logo (1).png" alt="UYL Logo">
+        
+      </a>
+      <nav class="main-nav">
         <a href="#skills">Skills</a>
         <a href="#why-choose">Why Choose Us?</a>
         <a href="#footer">Contact</a>
@@ -399,13 +409,13 @@ nav a:hover {
 document.addEventListener("DOMContentLoaded", function () {
     const text = "Master data science with expert-led courses, real-world projects, and hands-on learning.";
     const typewriterElement = document.getElementById("typewriter");
-    let index = 1;
+    let index = 0;
 
     function typeWriter() {
         if (index <= text.length) {
             typewriterElement.textContent = text.substring(0, index);
             index++;
-            setTimeout(typeWriter, 100); // Typing speed
+            setTimeout(typeWriter, 150); // Typing speed
         } else {
             // Stop the cursor animation after typing completes
             typewriterElement.style.animation = "none";
@@ -465,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <a href="https://www.instagram.com/uylearn/" target="_blank">
             <img src="insta.jpg" alt="Instagram">
           </a>
-          <a href="https://www.linkedin.com" target="_blank">
+          <a href="http://www.linkedin.com/in/until-you-learn-39000b364" target="_blank">
             <img src="linkdin.jpg" alt="LinkedIn">
           </a>
       </div>

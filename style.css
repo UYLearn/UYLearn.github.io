@@ -599,7 +599,6 @@ nav {
 }
 
 
-  /* Contact Us Section Styling */
 .contact {
   background: linear-gradient(135deg, #2c3e50, #3498db);
   color: white;
@@ -757,6 +756,24 @@ nav {
   .contact-form {
     padding: 20px;
   }
+}
+
+/* ======= COLOR FIXES TO UNIFY ALL INPUTS, TEXTAREA, SELECT ====== */
+.input-group input,
+.input-group textarea,
+.custom-select select {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.custom-select select option {
+  background: #ffffff;
+  color: #000000;
 }
 
 /* Footer Styling */

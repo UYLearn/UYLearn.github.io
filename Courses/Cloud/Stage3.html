@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Computing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #002b5c, #00509e);
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 45px;
+      margin-right: 12px;
+    }
+
+    .brand-name {
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #ffcc00;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-icon div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #004080;
+        position: absolute;
+        top: 70px;
+        right: 30px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: flex;
+      }
+    }
+
+    /* Main Content */
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #003366;
+      font-size: 32px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      width: 300px;
+      padding: 0 0 25px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      color: #00509e;
+    }
+
+    .card p {
+      color: #555;
+      padding: 0 15px;
+      min-height: 60px;
+    }
+
+    .enroll-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #00509e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .enroll-btn:hover {
+      background-color: #003f7f;
+      transform: scale(1.05);
+    }
+
+    section {
+      margin-top: 60px;
+      text-align: center;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <a href="../../index.htm" class="logo">
+        <img src="UYL_logo (1).png" alt="Logo" class="logo">
+        </a>
+        <span class="brand-name"></span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Courses</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+  <h2>Explore Cloud Computing</h2>
+  <div class="card-container">
+    
+    <div class="card">
+      <img src="seminar.jpg" alt="Seminar">
+      <h3>Seminar</h3>
+      <p>Get an overview of cloud technologies in a short, focused session.</p>
+      <a href="../../index.htm#contact-section">
+        <button class="enroll-btn">Enroll Now</button>
+      </a>
+    </div>
+    
+    <div class="card">
+      <img src="part.jpg" alt="Workshop">
+      <h3>Workshop</h3>
+      <p>Hands-on learning experience with practical cloud computing tasks.</p>
+      <a href="../../index.htm#contact-section">
+        <button class="enroll-btn">Enroll Now</button>
+      </a>
+    </div>
+    
+    <div class="card">
+      <img src="full.jpg" alt="Full Training">
+      <h3>Full Training</h3>
+      <p>In-depth training covering all major cloud platforms and deployments.</p>
+      <a href="../../index.htm#contact-section">
+        <button class="enroll-btn">Enroll Now</button>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+
+    <section>
+      <h2>Syllabus</h2>
+      <p>We'll decide whether to include the full syllabus here soon.</p>
+    </section>
+  </main>
+
+  <!-- Script -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
