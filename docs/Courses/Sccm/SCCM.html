@@ -64,7 +64,11 @@
     header nav a:hover {
       color: #00a8e8;
     }
-
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
     /* Landing Page */
     .landing-page {
       height: 100vh;
@@ -186,7 +190,10 @@
   <!-- Header -->
   <header>
     <div class="container">
-      <div class="logo">SCCM</div>
+      <a href="../../index.html" class="logo">
+        <img src="UYL_logo (1).png" alt="UYL Logo">
+        
+      </a>
       <nav>
         <a href="#features">Features</a>
         <a href="#why-choose">Why Choose Us?</a>
@@ -206,36 +213,50 @@
 
   <!-- SCCM Features Section -->
   <section id="features" class="section">
-    <div class="container">
-      <h2 class="section-title">SCCM Features</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>SCCM Client Management</h3>
-          <p>Efficient deployment, configuration, and troubleshooting of SCCM clients.</p>
-        </div>
-        <div class="card">
-          <h3>Software Deployment</h3>
-          <p>Seamless application packaging, distribution, and deployment management.</p>
-        </div>
-        <div class="card">
-          <h3>OS Deployment (OSD)</h3>
-          <p>Automated OS imaging, deployment, and task sequence management.</p>
-        </div>
-        <div class="card">
-          <h3>Inventory and Asset Management</h3>
-          <p>Track, manage, and report on hardware and software assets.</p>
-        </div>
-        <div class="card">
-          <h3>Role-Based Administration and Security</h3>
-          <p>Manage user roles, permissions, and secure SCCM access.</p>
-        </div>
-        <div class="card">
-          <h3>Troubleshooting SCCM</h3>
-          <p>Diagnose, resolve, and prevent SCCM issues efficiently.</p>
-        </div>
+  <div class="container">
+    <h2 class="section-title">SCCM Features</h2>
+    <div class="card-grid">
+
+      <div class="card" onclick="goToStage3()">
+        <h3>SCCM Client Management</h3>
+        <p>Efficient deployment, configuration, and troubleshooting of SCCM clients.</p>
       </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Software Deployment</h3>
+        <p>Seamless application packaging, distribution, and deployment management.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>OS Deployment (OSD)</h3>
+        <p>Automated OS imaging, deployment, and task sequence management.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Inventory and Asset Management</h3>
+        <p>Track, manage, and report on hardware and software assets.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Role-Based Administration and Security</h3>
+        <p>Manage user roles, permissions, and secure SCCM access.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Troubleshooting SCCM</h3>
+        <p>Diagnose, resolve, and prevent SCCM issues efficiently.</p>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  function goToStage3() {
+    window.location.href = "Stage3.html";
+  }
+</script>
+
 
   <!-- Why Choose Us Section -->
   <section id="why-choose" class="why-choose section">

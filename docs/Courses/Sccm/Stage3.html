@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SCCM Training</title>
+
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #1e1e1e;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00a8e8;
+    }
+
+    /* Header */
+    header {
+      background: rgba(30, 30, 30, 0.9);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img.logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00a8e8;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00a8e8;
+    }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-icon div {
+      height: 3px;
+      width: 25px;
+      background-color: #00a8e8;
+      margin: 4px 0;
+    }
+
+    /* Card Container */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(0, 168, 232, 0.1);
+      border: 1px solid #00a8e8;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #00a8e8;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    .enroll-btn {
+      margin-top: 15px;
+      background-color: #00a8e8;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .enroll-btn:hover {
+      background-color: #008dc1;
+    }
+
+    section {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(0, 168, 232, 0.05);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #00a8e8;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: flex;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #1e1e1e;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        border: 1px solid #00a8e8;
+        border-radius: 8px;
+        padding: 10px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <a href="../../index.html" class="logo">
+          <img src="UYL_logo (1).png" alt="Logo" class="logo">
+        </a>
+       
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2 class="section-title">Explore SCCM</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="seminar.jpg" alt="Seminar">
+        <h3>Seminar</h3>
+        <p>Get an overview of SCCM in a short, focused session.</p>
+        <a href="../../index.html#contact-section">
+          <button class="enroll-btn">Enroll Now</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="part.jpg" alt="Workshop">
+        <h3>Workshop</h3>
+        <p>Hands-on learning experience with practical SCCM tasks.</p>
+        <a href="../../index.html#contact-section">
+          <button class="enroll-btn">Enroll Now</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="full.jpg" alt="Full Training">
+        <h3>Full Training</h3>
+        <p>In-depth training covering all major SCCM Topics.</p>
+        <a href="../../index.html#contact-section">
+          <button class="enroll-btn">Enroll Now</button>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <section>
+    <h2>Syllabus</h2>
+    <p>We'll decide whether to include the full syllabus here soon.</p>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

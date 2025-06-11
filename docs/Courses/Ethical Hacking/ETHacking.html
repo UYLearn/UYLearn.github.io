@@ -259,6 +259,7 @@
     <div class="container">
       <div class="logo">Ethical Hacking</div>
       <nav>
+        <a href="../../index.html">Home</a>
         <a href="#cards">Topics</a>
         <a href="#why-choose">Why Choose Us?</a>
         <a href="#footer">Contact</a>
@@ -281,40 +282,55 @@
 
   <!-- Information Cards -->
   <section id="cards" class="section">
-    <div class="container">
-      <h2 class="section-title">Explore Ethical Hacking</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Penetration Testing</h3>
-          <p>Uncover security flaws before hackers do.</p>
-        </div>
-        <div class="card">
-          <h3>Red Teaming</h3>
-          <p>Simulate real-world attacks to test defenses.</p>
-        </div>
-        <div class="card">
-          <h3>White Hat Hacker</h3>
-          <p>Strengthen security with permission.</p>
-        </div>
-        <div class="card">
-          <h3>Exploitation</h3>
-          <p>Identify and leverage vulnerabilities for security testing.</p>
-        </div>
-        <div class="card">
-          <h3>Network Security</h3>
-          <p>Protect networks from threats and unauthorized access.</p>
-        </div>
-        <div class="card">
-          <h3>Cryptography</h3>
-          <p>Secure data through encryption and cryptographic techniques.</p>
-        </div>
-        <div class="card">
-          <h3>Phishing</h3>
-          <p>Deceptive attacks tricking users into revealing information.</p>
-        </div>
+  <div class="container">
+    <h2 class="section-title">Explore Ethical Hacking</h2>
+    <div class="card-grid">
+      
+      <div class="card" onclick="goToStage3()">
+        <h3>Penetration Testing</h3>
+        <p>Uncover security flaws before hackers do.</p>
       </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Red Teaming</h3>
+        <p>Simulate real-world attacks to test defenses.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>White Hat Hacker</h3>
+        <p>Strengthen security with permission.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Exploitation</h3>
+        <p>Identify and leverage vulnerabilities for security testing.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Network Security</h3>
+        <p>Protect networks from threats and unauthorized access.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Cryptography</h3>
+        <p>Secure data through encryption and cryptographic techniques.</p>
+      </div>
+
+      <div class="card" onclick="goToStage3()">
+        <h3>Phishing</h3>
+        <p>Deceptive attacks tricking users into revealing information.</p>
+      </div>
+      
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  function goToStage3() {
+    window.location.href = "Stage3.html";
+  }
+</script>
+
 
   <!-- Why Choose Ethical Hacking Section -->
   <section id="why-choose" class="why-choose section">

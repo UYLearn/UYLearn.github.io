@@ -135,7 +135,7 @@ function toggleMenu() {
         const increment = target / 100;
         if (count < target) {
           counter.innerText = `${Math.ceil(count + increment)}`;
-          setTimeout(updateCounter, 50);
+          setTimeout(updateCounter, 120);
         } else {
           counter.innerText = target;
         }

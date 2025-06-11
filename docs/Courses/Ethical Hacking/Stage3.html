@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Computing Courses | UYLearn</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background: url('') no-repeat center center fixed;
+      background-size: cover;
+      color: #00ff00;
+      line-height: 1.6;
+    }
+
+     video#bgVideo {
+       position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the full screen */
+            z-index: -1; /* Places it behind other content */
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img.logo {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff00;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff00ff;
+    }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-icon div {
+      width: 25px;
+      height: 3px;
+      background-color: #00ff00;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border: 1px solid #00ff00;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: flex;
+      }
+    }
+
+    main h2, section h2 {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2rem;
+      color: #00ff00;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 20px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid #00ff00;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #00ff00;
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccffcc;
+    }
+
+    .enroll-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #00ff00;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .enroll-btn:hover {
+      background-color: #ff00ff;
+      color: #fff;
+    }
+
+    section {
+      padding: 0 20px 40px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    section p {
+      font-size: 1rem;
+      color: #cccccc;
+    }
+  </style>
+</head>
+<body>
+<video autoplay muted loop id="bgVideo">
+    <source src="code.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        
+        <span class="brand-name">Ethical Hacking</span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="../../index.html">Home</a>
+        
+        <a href="../../index.html#contact-us">Contact</a>
+      </nav>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Explore Ethical Hacking</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="seminar.jpg" alt="Seminar" />
+        <h3>Seminar</h3>
+        <p>Get an overview of Ethical Hacking in a short, focused session.</p>
+        <a href="../../index.html#contact-section">
+          <button class="enroll-btn">Enroll Now</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="part.jpg" alt="Workshop" />
+        <h3>Workshop</h3>
+        <p>Hands-on learning experience with practical Ethical Hacking tasks.</p>
+        <a href="../../index.html#contact-section">
+          <button class="enroll-btn">Enroll Now</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="full.jpg" alt="Full Training" />
+        <h3>Full Training</h3>
+        <p>In-depth training covering all major Ethical Hacking Topics.</p>
+        <a href="../../index.html#contact-section">
+          <button class="enroll-btn">Enroll Now</button>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Syllabus Section -->
+  <section>
+    <h2>Syllabus</h2>
+    <p>We'll decide whether to include the full syllabus here soon.</p>
+  </section>
+
+  <!-- Script -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

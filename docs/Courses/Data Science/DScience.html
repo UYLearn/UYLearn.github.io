@@ -401,59 +401,60 @@ html, body {
   <!-- Landing Page -->
   <section class="landing-page">
     <div class="container">
-        <h1>Welcome to Data Science Hub</h1>
-        <div class="typewriter" id="typewriter"></div>
+        <h1>Welcome to <span class="highlight">Data Science</span></h1>
+        <p id="typing-text"></p>
     </div>
 </section>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const text = "Master data science with expert-led courses, real-world projects, and hands-on learning.";
-    const typewriterElement = document.getElementById("typewriter");
+ const text = "Data Science course focused on Python programming, and data-driven decision making..";
     let index = 0;
-
-    function typeWriter() {
+    function typeEffect() {
+        document.getElementById("typing-text").textContent = text.slice(0, index);
+        index++;
         if (index <= text.length) {
-            typewriterElement.textContent = text.substring(0, index);
-            index++;
-            setTimeout(typeWriter, 150); // Typing speed
-        } else {
-            // Stop the cursor animation after typing completes
-            typewriterElement.style.animation = "none";
-            typewriterElement.style.borderRight = "none";
+            setTimeout(typeEffect, 100);
         }
     }
+    document.addEventListener("DOMContentLoaded", typeEffect); 
 
-    typeWriter(); // Start animation on page load
-});
 </script>
 
   <!-- Skills Section -->
   <section id="skills" class="skills section">
+    <section id="skills" class="skills section">
     <div class="container">
         <h2 class="section-title">Courses</h2>
         <div class="card-grid">
-            <div class="card" onclick="navigateTo('')">
+            <div class="card" onclick="navigateTo('stage3.html')">
                 <img src="POWERBI.jpg" alt="Power BI">
                 <h3>Power BI</h3>
                 <p>Visualize and analyze data with interactive dashboards.</p>
             </div>
-            <div class="card" onclick="navigateTo('sql.html')">
+            <div class="card" onclick="navigateTo('stage3.html')">
                 <img src="SQL.jpg" alt="SQL">
                 <h3>SQL</h3>
                 <p>Manage and query relational databases efficiently.</p>
             </div>
-            <div class="card" onclick="navigateTo('python.html')">
+            <div class="card" onclick="navigateTo('stage3.html')">
                 <img src="PYTHON.jpg" alt="Python">
                 <h3>Python</h3>
                 <p>Leverage powerful libraries for data analysis and machine learning.</p>
             </div>
-            <div class="card" onclick="navigateTo('advanced-excel.html')">
+            <div class="card" onclick="navigateTo('Stage3.html')">
                 <img src="ADVANCE XL.jpg" alt="Advance XL">
                 <h3>Advanced Excel</h3>
                 <p>Master advanced Excel techniques for data analysis.</p>
             </div>
         </div>
     </div>
+</section>
+
+<script>
+function navigateTo(url) {
+    window.location.href = url;
+}
+</script>
+
 </section>
 
 
