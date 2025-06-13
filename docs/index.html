@@ -430,19 +430,46 @@ function toggleMenu() {
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 
-  <audio id="bg-music" loop>
-    <source src="UYL.mp3" type="audio/mpeg">
-</audio>
+   <!-- Popup Container -->
+<div id="popup" class="popup">
+  <span id="popup-text"></span>
+</div>
 
 <script>
-    window.addEventListener("load", () => {
-        const audio = document.getElementById("bg-music");
-        audio.volume = 500; // Set volume (optional)
-        audio.play().catch(error => {
-            console.log("Autoplay blocked. User interaction needed.");
-        });
-    });
+  // List of names and courses for popup notifications
+  const notifications = [
+    { name: "Lavin", course: "Cloud Computing" },
+    { name: "Rahul", course: "Data Science" },
+    { name: "Apporva", course: "Ethical Hacking" },
+    { name: "Abhishek", course: "SCCM" },
+    { name: "Priya", course: "Data Science" },
+  ];
+
+  const popup = document.getElementById("popup");
+
+  function showPopup(){
+    // Choose a random notification
+    const notification = notifications[Math.floor(Math.random() * notifications.length)];
+
+    // Update popup text
+    document.getElementById("popup-text").innerHTML = `${notification.name} just registered for ${notification.course}`;
+
+    // show popup
+    popup.classList.add("active");
+
+    // Hide after 3 seconds
+    setTimeout(function(){
+      popup.classList.remove("active");
+
+      // Loop again after a delay
+      setTimeout(showPopup, 5000);
+    }, 3000);
+  }
+
+  // Start notifications after a short delay
+  setTimeout(showPopup, 1000);
 </script>
+
 
 </body>
 </html>
