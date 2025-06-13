@@ -74,11 +74,12 @@ nav {
 /* CTA Button */
 .cta-button {
   background: #007BFF;
-  color: white;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
   transition: background 0.3s ease;
 }
 
@@ -86,7 +87,7 @@ nav {
   background: #0056b3;
 }
 
-/* 🔹 Mobile Navigation Fix */
+/* 🔹 Mobile Navigation & Button Size Adjustment */
 @media (max-width: 768px) {
   header {
     display: flex;
@@ -95,10 +96,49 @@ nav {
     padding: 10px 15px;
   }
 
-  /* Align Logo to Left */
   .logo {
     flex-grow: 1;
   }
+
+  /* Reduce button size on small screens */
+  /* CTA Button */
+.cta-button {
+  background: #007BFF;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #0056b3;
+}
+
+/* 🔹 Mobile Navigation & Button Size Adjustment */
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  .logo {
+    flex-grow: 1;
+  }
+
+  /* Reduce button size on small screens */
+  .cta-button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+  }
+}
+
+
 
   /* Hide Navigation Links by Default */
   .nav-links {
@@ -665,6 +705,30 @@ nav {
   color: #ffcc00;
 }
 
+.input-group label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: 0.3s ease-in-out;
+}
+
+/* Float label up when select is focused or filled */
+.input-group select:focus ~ label,
+.input-group select:not([value=""]) ~ label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #ffcc00;
+}
+
+/* Keep hover and focus effects for select */
+.input-group select:hover,
+.input-group select:focus {
+  box-shadow: 0 0 10px #ffcc00;
+}
+
 /* Style for the input group */
 .input-group {
   position: relative;
@@ -672,8 +736,18 @@ nav {
   width: 100%;
 }
 
+
+
 /* Label Styling */
 .input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.custom-group label {
   display: block;
   font-size: 14px;
   font-weight: 600;
