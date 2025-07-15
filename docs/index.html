@@ -243,7 +243,7 @@ function toggleMenu() {
 
 
   <!-- Contact & Footer Section -->
-  <section id="contact-section" class="contact section">
+ <section id="contact-section" class="contact section">
   <div class="container">
     <h2 class="section-title">Get in Touch</h2>
     <p class="contact-description">We'd love to hear from you! Fill out the form below, and we’ll get back to you shortly.</p>
@@ -269,7 +269,7 @@ function toggleMenu() {
         <!-- Course Dropdown -->
         <div class="input-group">
           <div class="custom-select">
-            <select id="course" name="entry.478867909" required >
+            <select id="course" name="entry.478867909" required>
               <option value="" disabled selected></option>
               <option value="Cloud">Cloud</option>
               <option value="Data Science">Data Science</option>
@@ -283,7 +283,6 @@ function toggleMenu() {
 
         <!-- Course Type Dropdown -->
         <div class="input-group">
-          
           <div class="custom-select">
             <select id="courseType" name="entry.2146245931" required>
               <option value="" disabled selected></option>
@@ -306,47 +305,55 @@ function toggleMenu() {
   </div>
 </section>
 
-
 <!-- Invisible iframe to prevent Google Forms from opening -->
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      mode: "no-cors"
+    }).then(() => {
+      alert("Thank you! Your message has been sent.");
+      form.reset();
+    }).catch(error => console.error("Error!", error));
+  });
 
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent default form submission
-  
-  const form = e.target;
-  const formData = new FormData(form);
-  
-  fetch(form.action, {
-    method: "POST",
-    body: formData,
-    mode: "no-cors" // Prevent Google Forms redirection
-  }).then(() => {
-    alert("Thank you! Your message has been sent.");
-    form.reset(); // Clear the form after submission
-  }).catch(error => console.error("Error!", error));
-});
+  document.querySelector('.cta-button')?.addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('#contact-section').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 
-    document.querySelector('.cta-button').addEventListener('click', function(event) {
-  event.preventDefault(); 
-  document.querySelector('#contact-section').scrollIntoView({ behavior: 'smooth' });
-});
-
-  </script>
-
-  <script>
-    // Floating Labels Effect
-    document.querySelectorAll(".input-group input, .input-group textarea").forEach((input) => {
-      input.addEventListener("focus", () => input.parentNode.classList.add("focused"));
-      input.addEventListener("blur", () => {
-        if (!input.value) {
-          input.parentNode.classList.remove("focused");
-        }
-      });
+<script>
+  // Floating Labels Effect
+  document.querySelectorAll(".input-group input, .input-group textarea").forEach((input) => {
+    input.addEventListener("focus", () => input.parentNode.classList.add("focused"));
+    input.addEventListener("blur", () => {
+      if (!input.value) {
+        input.parentNode.classList.remove("focused");
+      }
     });
-  
-  </script>
+  });
+
+  // Block special characters
+  document.getElementById("name").addEventListener("input", function () {
+    this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+  });
+
+  document.getElementById("phone").addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "");
+  });
+
+  document.getElementById("message").addEventListener("input", function () {
+    this.value = this.value.replace(/[^a-zA-Z0-9\s.,!?]/g, "");
+  });
+</script>
 
   <script>
      // Dark Mode Toggle
