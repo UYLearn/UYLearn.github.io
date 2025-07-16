@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Courses | Until You Learn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --primary-dark: #1a252f;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-dark);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            height: 40px;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 24px;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Cards Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .course-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .course-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-img img {
+            transform: scale(1.05);
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .course-desc {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Syllabus Section */
+        .syllabus-section {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .syllabus-text {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: all 0.5s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="../../index.html">
+                    <img src="UYL_logo (1).png" alt="Until You Learn Logo" class="logo">
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../../index.html#contact-us" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <h1 class="section-title animate">Explore Web Development</h1>
+            
+            <div class="courses-grid">
+                <!-- Seminar Card -->
+                <div class="course-card animate delay-1">
+                    <div class="course-img">
+                        <img src="Seminar.jpg" alt="Seminar">
+                    </div>
+                    <div class="course-content">
+                        <h2 class="course-title">Seminar</h2>
+                        <p class="course-desc">Get an overview of Web Development in a short, focused session.</p>
+                        <a href="../../index.html#contact-section" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Workshop Card -->
+                <div class="course-card animate delay-2">
+                    <div class="course-img">
+                        <img src="Workshop.jpg" alt="Workshop">
+                    </div>
+                    <div class="course-content">
+                        <h2 class="course-title">Workshop</h2>
+                        <p class="course-desc">Hands-on experience with practical Web Development tasks.</p>
+                        <a href="../../index.html#contact-section" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Full Training Card -->
+                <div class="course-card animate delay-3">
+                    <div class="course-img">
+                        <img src="Full Training.jpg" alt="Full Training">
+                    </div>
+                    <div class="course-content">
+                        <h2 class="course-title">Full Training</h2>
+                        <p class="course-desc">In-depth training covering all major Web Development modules.</p>
+                        <a href="../../index.html#contact-section" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Syllabus Section -->
+            <div class="syllabus-section animate">
+                <h2 class="section-title">Syllabus</h2>
+                <p class="syllabus-text">We'll decide whether to include the full syllabus here soon.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2023 Until You Learn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animateElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
