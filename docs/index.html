@@ -103,7 +103,7 @@ function toggleMenu() {
       <h2 class="section-title">About <span class="highlight">UYLearn</span></h2>
       <p class="about-text">
         UYLearn is a leading online education platform offering courses in
-        <span class="highlight">Cloud Computing, Data Science, Ethical Hacking, and SCCM.</span>
+        <span class="highlight">Cloud Computing, Data Science, Ethical Hacking, SCCM, Web Development.</span>
         Our mission is to provide high-quality education and empower students to achieve their career goals.
       </p>
   
@@ -231,19 +231,19 @@ function toggleMenu() {
         <h2 class="section-title">What Our Students Say</h2>
         <div class="testimonial-slider">
             <div class="testimonial-card">
-                <img src="img/Screenshot 2024-11-19 102830.png" alt="Student 1">
+                <img src="img/Lavin.png" alt="Student 1">
                 <p>"UYLearn helped me land my dream job in cloud computing. Highly recommended!"</p>
-                <h4>Lavin</h4>
+                <h4>Rohan</h4>
             </div>
             <div class="testimonial-card">
                 <img src="img/Rahul.png" alt="Student 2">
                 <p>"The Data Science course was comprehensive and practical. Great learning experience!"</p>
-                <h4>Rahul</h4>
+                <h4>Siddharth</h4>
             </div>
             <div class="testimonial-card">
                 <img src="appova.jpg" alt="Student 3">
                 <p>"Ethical Hacking course was challenging but worth it. Thanks, UYLearn!"</p>
-                <h4>Apoorva</h4>
+                <h4>Prachi</h4>
             </div>
         </div>
         <!-- Dots for navigation -->
@@ -488,6 +488,47 @@ function toggleMenu() {
   // Start notifications after a short delay
   setTimeout(showPopup, 1000);
 </script>
+
+<!-- Course Popup -->
+<div id="coursePopup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <div class="popup-grid">
+      <div class="popup-text">
+        <h2>WEB DEVELOPMENT</h2>
+        <h3>Master Website Creation with <span style="color:#0073e6">WordPress</span> — Start for ₹500 Only!</h3>
+        <p class="highlight">🎁 Get a surprise discount after you sign up — don’t miss it!</p>
+        <p class="batch-date">📅 Batch starts <strong>21st July</strong> — Secure your seat now!</p>
+        <a href="Courses/Web Development/WebD.html" class="learn-btn" target="_blank">LEARN MORE</a>
+        <div class="contact-info">
+          <p>🌐 <strong>untilyoulearn.com</strong></p>
+          <p>📞 +91 9220698666</p>
+        </div>
+      </div>
+      <div class="popup-image">
+        <img src="Ad.jpg" alt="Web Development Course" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to close the popup
+  function closePopup() {
+    document.getElementById("coursePopup").style.display = "none";
+  }
+
+  // Show popup 3 seconds after page load
+  window.onload = function () {
+    setTimeout(() => {
+      const popup = document.getElementById("coursePopup");
+      if (popup) {
+        popup.style.display = "flex";
+      }
+    }, 3000);
+  };
+</script>
+
 
 
 </body>
