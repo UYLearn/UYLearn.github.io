@@ -270,10 +270,40 @@
           <label for="email">Your Email</label>
         </div>
 
-        <div class="input-group">
-          <input type="tel" id="phone" name="entry.1166974658" required placeholder=" ">
-          <label for="phone">Your Phone</label>
-        </div>
+        <!-- Country Code Dropdown -->
+<div class="input-group custom-group">
+  <div class="custom-select">
+    <select id="countryCode" name="countryCode" required>
+      <option value="+91" selected>+91 (IN)</option>
+      <option value="+1">+1 (US)</option>
+      <option value="+44">+44 (UK)</option>
+      <option value="+61">+61 (AU)</option>
+      <option value="+971">+971 (UAE)</option>
+    </select>
+    <label for="countryCode">Country Code</label>
+  </div>
+</div>
+
+<!-- Phone Input -->
+<div class="input-group">
+  <input
+    type="tel"
+    id="phone"
+    name="entry.1166974658"
+    required
+    pattern="[0-9]{10}"
+    maxlength="10"
+    inputmode="numeric"
+    placeholder=" "
+  />
+  <label for="phone">Your Phone (10 digits)</label>
+</div>
+
+<script>
+  document.getElementById("phone").addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+  });
+</script>
 
         <!-- Course Dropdown -->
         <div class="input-group">

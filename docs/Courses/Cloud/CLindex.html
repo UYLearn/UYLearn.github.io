@@ -120,6 +120,137 @@
             margin: 10px 0 0;
         }
 
+.trainers-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    color: #2F5496;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #FFB900;
+    margin: 15px auto;
+}
+
+.trainer-profile {
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.trainer-image-container {
+    flex: 0 0 300px;
+}
+
+.trainer-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.trainer-details {
+    flex: 1;
+    padding: 30px;
+}
+
+.trainer-name {
+    color: #2F5496;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.trainer-location {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.trainer-title {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #EEE;
+}
+
+.trainer-expertise h4, 
+.trainer-experience h4, 
+.trainer-certifications h4 {
+    color: #2F5496;
+    margin: 20px 0 15px;
+    font-size: 1.2rem;
+}
+
+.trainer-details ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.trainer-details li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.certification-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.certification-badge {
+    background: #F3F2F1;
+    color: #323130;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .trainer-profile {
+        flex-direction: column;
+    }
+    
+    .trainer-image-container {
+        flex: 0 0 250px;
+    }
+    
+    .trainer-details {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .trainer-name {
+        font-size: 1.5rem;
+    }
+    
+    .certification-badges {
+        flex-direction: column;
+    }
+}
+
+
         /* Courses Section Styles */
         .courses, .why-choose-cloud {
             padding: 50px 20px;
@@ -242,6 +373,49 @@
         </div>
         <!-- Particles will be generated here by JavaScript -->
     </div>
+
+    <div class="trainers-section">
+    <h2 class="section-title">Our Expert Trainers</h2>
+    <div class="trainer-profile">
+        <div class="trainer-image-container">
+            <img src="Rahul.png" alt="Rahul Antil - Microsoft Intune Expert" class="trainer-image">
+        </div>
+        <div class="trainer-details">
+            <h3 class="trainer-name">Rahul Antil</h3>
+            <p class="trainer-location">Gurgaon, India</p>
+            <p class="trainer-title">Microsoft Certified Consultant | Intune Admin | Senior Escalation Engineer</p>
+            
+            <div class="trainer-expertise">
+                <h4>Expertise:</h4>
+                <ul>
+                    <li>Microsoft Intune Implementation & Management</li>
+                    <li>Mobile Device Management (MDM)</li>
+                    <li>Enterprise Application Deployment</li>
+                    <li>Device Compliance & Security Policies</li>
+                    <li>Microsoft 365 Mobility Solutions</li>
+                </ul>
+            </div>
+            
+            <div class="trainer-experience">
+                <h4>Professional Experience:</h4>
+                <ul>
+                    <li>10+ years in Microsoft technologies</li>
+                    <li>Consultant & Intune Automation Engineer @ HCL Technologies</li>
+                    <li>Sr. Escalation Engineer & Intune Administrator @ Microsoft</li>
+                    <li>Research and Development Engineer @ Infizeal Technologies</li>
+                </ul>
+            </div>
+            
+            <div class="trainer-certifications">
+                <h4>Certifications:</h4>
+                <div class="certification-badges">
+                    <span class="certification-badge">MS-101: Microsoft 365 Mobility and Security</span>
+                    <span class="certification-badge">Microsoft 365 Certified: Fundamentals</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Courses Section -->
     <div id="courses">
