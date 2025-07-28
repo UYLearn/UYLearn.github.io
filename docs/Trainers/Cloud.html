@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Antil | Microsoft Intune Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2a5bd7;
+            --secondary-color: #4bc0d9;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --gray-color: #6c757d;
+            --light-gray: #e9ecef;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .profile-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-content {
+            flex: 2;
+        }
+
+        .profile-content h1 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .profile-content .title {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .profile-content .location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: var(--gray-color);
+        }
+
+        .profile-content .location i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .profile-content .bio {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .contact-info a i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        /* Details Section */
+        .details-section {
+            padding: 60px 0;
+            background-color: var(--light-gray);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .certification-item, .experience-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .certification-item:last-child, .experience-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .certification-item h4, .experience-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .certification-item p, .experience-item p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        .experience-item .company {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-item .duration {
+            font-size: 0.8rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .profile-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .profile-image {
+                text-align: center;
+            }
+
+            .profile-content {
+                text-align: center;
+            }
+
+            .profile-content .location, .contact-info {
+                justify-content: center;
+            }
+
+            .section-title h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .profile-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info a {
+                display: flex;
+                justify-content: center;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="UYL_logo (1).png" alt="UYL Logo">
+                    <span></span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="trainers.html" class="active">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <!-- Replace with actual trainer image -->
+                    <img src="Rahul.png" alt="Rahul Antil">
+                </div>
+                <div class="profile-content">
+                    <h1>Rahul Antil</h1>
+                    <p class="title">Microsoft Intune Admin | Senior Escalation Engineer | MDM Consultant</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Gurgaon, India</span>
+                    </div>
+                    <p class="bio">
+                        More than 10 years experienced professional with expertise in Microsoft Intune, specializing in mobile device management and application deployment. Skilled in configuring policies, managing device compliance and ensuring data security in an enterprise environment. Expert Microsoft certified trainer across various platforms with a proven track record of successfully implementing and maintaining Intune solutions.
+                    </p>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details-section" id="details">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Details</h2>
+            </div>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3>Certifications</h3>
+                    <div class="certification-item">
+                        <h4>MS-101: Microsoft 365 Mobility and Security</h4>
+                        <p>Microsoft Certified</p>
+                    </div>
+                    <div class="certification-item">
+                        <h4>Microsoft 365 Certified: Fundamentals</h4>
+                        <p>Microsoft</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <h3>Experience</h3>
+                    <div class="experience-item">
+                        <h4>Consultant | Intune Automation Engineer</h4>
+                        <p class="company">HCL Technologies</p>
+                        <p class="duration">Current Position</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>Consultant | Sr. Escalation Engineer | Intune Administrator</h4>
+                        <p class="company">Microsoft</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>Research and Development Engineer</h4>
+                        <p class="company">Infizeal Technologies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>About UntilYouLearn</h3>
+                    <p>Premier online learning platform committed to providing high-quality, industry-relevant courses to help professionals upskill and advance their careers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> uylearn@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 9220698666</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Gurugram, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UntilYouLearn. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

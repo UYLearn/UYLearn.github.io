@@ -474,6 +474,183 @@ nav {
   }
 }
 
+/* Global Styles */
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #ff6b6b;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Trainers Section */
+        .trainers-section {
+            background-color: #f9faff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .trainers-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .trainers-heading {
+            flex: 1;
+            min-width: 300px;
+            padding: 60px;
+            background: linear-gradient(135deg, var(--primary-color), #6a5acd);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .trainers-heading h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            position: relative;
+        }
+
+        .trainers-heading h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            bottom: -15px;
+            left: 0;
+        }
+
+        .trainers-heading .icon {
+            font-size: 3rem;
+            margin-top: 30px;
+            opacity: 0.2;
+        }
+
+        .trainers-content {
+            flex: 1.5;
+            min-width: 300px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .trainers-content p {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .know-more-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            text-align: center;
+            width: fit-content;
+        }
+
+        .know-more-btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .know-more-btn i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .know-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .trainers-heading, .trainers-content {
+                padding: 40px;
+            }
+
+            .trainers-heading h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trainers-container {
+                flex-direction: column;
+            }
+
+            .trainers-heading {
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .trainers-heading h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .trainers-heading .icon {
+                margin: 20px auto 0;
+            }
+
+            .trainers-content {
+                padding: 40px 30px;
+                text-align: center;
+            }
+
+            .know-more-btn {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trainers-heading h2 {
+                font-size: 1.8rem;
+            }
+
+            .trainers-content p {
+                font-size: 1rem;
+            }
+        }
+
   /* Why Choose Us Section */
   .why-choose-us {
     background: #f9f9f9;

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavin Choudhary | Web Development Trainer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #334155;
+            --gray-color: #64748b;
+            --light-gray: #f1f5f9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: white;
+        }
+
+        @supports (font-variation-settings: normal) {
+            body { font-family: 'Inter var', -apple-system, BlinkMacSystemFont, sans-serif; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            color: var(--secondary-color);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+            color: var(--dark-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 60px;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary-color);
+            border-radius: 16px;
+            top: 15px;
+            left: 15px;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .profile-image:hover::before {
+            top: 10px;
+            left: 10px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .profile-image:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-content {
+            flex: 2;
+        }
+
+        .profile-content h1 {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .profile-content .title {
+            font-size: 1.3rem;
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .profile-content .location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: var(--gray-color);
+            gap: 10px;
+        }
+
+        .profile-content .bio {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-info a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-color);
+            gap: 8px;
+        }
+
+        .contact-info a i {
+            color: var(--primary-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background-color: var(--light-gray);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .experience-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .experience-item .company {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .experience-item .duration {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .experience-item .description {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .responsibilities {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .responsibilities li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.6;
+        }
+
+        .responsibilities li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .project-content p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Education Section */
+        .education-section {
+            background-color: var(--light-gray);
+        }
+
+        .education-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .education-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .education-item .institution {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .education-item .degree {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .education-item .duration {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .education-item .grade {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .certification-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .certification-card .issuer {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .certification-card .date {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #d1d5db;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .profile-container {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 20px;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .profile-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .profile-image {
+                text-align: center;
+            }
+
+            .profile-content {
+                text-align: center;
+            }
+
+            .profile-content .location, 
+            .contact-info,
+            .action-buttons {
+                justify-content: center;
+            }
+
+            .section-title h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 0 40px;
+            }
+
+            .profile-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .profile-content .title {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="UYL_logo (1).png" class="logo">
+                    
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                   
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <!-- Replace with actual trainer image -->
+                    <img src="Lavin.jpg" alt="Lavin Choudhary">
+                </div>
+                <div class="profile-content">
+                    <h1>Lavin Choudhary</h1>
+                    <p class="title">Web Development Trainer | Full Stack Developer</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bhilwara, Rajasthan, India</span>
+                    </div>
+                    <p class="bio">
+                        Passionate web developer and trainer with expertise in modern JavaScript frameworks and DevOps practices. 
+                        Experienced in building responsive web applications and mentoring students in full-stack development.
+                    </p>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Java</li>
+                        <li>HTML5/CSS3</li>
+                        <li>SQL</li>
+                        <li>WordPress</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Git/GitHub</li>
+                        <li>GitHub Co-Pilot</li>
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>AWS</li>
+                        <li>Docker</li>
+                        <li>Ansible</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>React.js</li>
+                        <li>Node.js</li>
+                        <li>Spring Boot</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Lavin Choudhary</h3>
+                    <p>Web Development Trainer and Full Stack Developer with expertise in modern JavaScript frameworks and DevOps practices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 9220698666</p>
+                    <p><i class="fas fa-envelope"></i> uylearn@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Gurugram, India</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <p><a href="#skills">Skills</a></p>
+                    
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UntilYouLearn. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
