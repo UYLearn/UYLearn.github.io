@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveen | Certified Ethical Hacking Trainer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --cyber-blue: #0d47a1;
+            --neon-green: #00ff41;
+            --neon-red: #ff073a;
+            --terminal-text: #e0e0e0;
+            --card-bg: #121212;
+            --glow-effect: 0 0 10px rgba(0, 255, 65, 0.5);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', 'Source Code Pro', monospace;
+            line-height: 1.6;
+            color: var(--terminal-text);
+            background-color: var(--dark-bg);
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--darker-bg);
+            border-bottom: 1px solid var(--neon-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-decoration: none;
+            text-shadow: var(--glow-effect);
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--terminal-text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--neon-green);
+            text-shadow: var(--glow-effect);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--neon-green);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+            box-shadow: var(--glow-effect);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+            padding: 0 2rem;
+            border-bottom: 1px solid var(--neon-green);
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 0 10px var(--neon-green);
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--terminal-text);
+        }
+        
+        .terminal-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--neon-green);
+            padding: 0.8rem 2rem;
+            border: 1px solid var(--neon-green);
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--glow-effect);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .terminal-button:hover {
+            background-color: rgba(0, 255, 65, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+        
+        .terminal-button::before {
+            content: '>_ ';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+            font-size: 2rem;
+            position: relative;
+            text-shadow: 0 0 8px var(--neon-green);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--neon-green);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: var(--glow-effect);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--card-bg);
+            border-radius: 0;
+            border: 1px solid var(--neon-green);
+            box-shadow: var(--glow-effect);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+            overflow: hidden;
+        }
+        
+        .profile-image-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--darker-bg);
+            border-right: 1px solid var(--neon-green);
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80') center/cover;
+            border: 3px solid var(--neon-green);
+            box-shadow: var(--glow-effect);
+        }
+        
+        .profile-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+        }
+        
+        .profile-text h2 {
+            color: var(--neon-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+        }
+        
+        .profile-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .certifications {
+            margin: 2rem 0;
+        }
+        
+        .cert-title {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .badge {
+            background-color: var(--darker-bg);
+            color: var(--neon-green);
+            padding: 0.6rem 1.2rem;
+            border-radius: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid var(--neon-green);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .badge:hover {
+            background-color: var(--neon-green);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: var(--glow-effect);
+        }
+        
+        .badge i {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .tools {
+            margin-top: 2rem;
+        }
+        
+        .tools-title {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .tool-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            color: var(--terminal-text);
+            transition: var(--transition);
+        }
+        
+        .tool-icon:hover {
+            color: var(--neon-green);
+            transform: translateY(-5px);
+            text-shadow: var(--glow-effect);
+        }
+        
+        .about-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: var(--terminal-text);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--neon-green);
+            transform: translateY(-3px);
+            text-shadow: var(--glow-effect);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Terminal Cursor Effect */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background: var(--neon-green);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 5rem 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .profile-image-container {
+                order: -1;
+                padding-bottom: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--neon-green);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">UNTIL YOU LEARN<span class="cursor"></span></a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Master Ethical Hacking & Cybersecurity</h1>
+            <p>Learn offensive security techniques from a certified professional with real-world experience</p>
+            <a href="#courses" class="terminal-button">Start Learning Ethical Hacking</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">Meet Naveen – Cybersecurity & Ethical Hacking Trainer</h2>
+        <div class="about-content">
+            <div class="profile-image-container">
+                <div class="profile-image"></div>
+            </div>
+            <div class="profile-text">
+                <h2>Certified Ethical Hacking Professional</h2>
+                <p>I'm Naveen, a Certified Ethical Hacking (CEH) professional and cybersecurity trainer with a strong command over offensive security, vulnerability assessment, and penetration testing.</p>
+                
+                <p>With over 5 years of industry experience in ethical hacking and information security, I've helped organizations identify and mitigate critical security loopholes, ensuring robust protection against modern cyber threats. My practical expertise spans across network security, web application testing, social engineering simulations, malware analysis, and secure architecture design.</p>
+                
+                <p>Holding certifications such as CEH (Certified Ethical Hacker), CompTIA Security+, and OSCP (Offensive Security Certified Professional), I bring both foundational knowledge and advanced techniques to my training sessions.</p>
+                
+                <p>As a trainer, I focus on hands-on learning, real-time attack simulations, and industry-standard tools like Kali Linux, Metasploit, Burp Suite, Wireshark, and more. My goal is to empower aspiring cybersecurity professionals with the skills and mindset needed to ethically defend and protect in an ever-evolving digital world.</p>
+                
+                <div class="certifications">
+                    <h3 class="cert-title">Certifications:</h3>
+                    <div class="badges">
+                        <span class="badge"><i class="fas fa-shield-alt"></i> CEH</span>
+                        <span class="badge"><i class="fas fa-user-secret"></i> OSCP</span>
+                        <span class="badge"><i class="fas fa-lock"></i> CompTIA Security+</span>
+                    </div>
+                </div>
+                
+                <div class="tools">
+                    <h3 class="tools-title">Tools & Technologies:</h3>
+                    <div class="tool-icons">
+                        <i class="fab fa-linux" title="Kali Linux"></i>
+                        <i class="fas fa-bug" title="Metasploit"></i>
+                        <i class="fas fa-shield-virus" title="Burp Suite"></i>
+                        <i class="fas fa-network-wired" title="Wireshark"></i>
+                        <i class="fas fa-code" title="Python"></i>
+                        <i class="fas fa-terminal" title="Bash"></i>
+                    </div>
+                </div>
+                
+                <div class="about-cta">
+                    <a href="#courses" class="terminal-button">Explore Hacking Courses</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© UNTIL YOU LEARN – All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation trigger on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.about-content, .hero-content').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Terminal typing effect for logo
+        const logo = document.querySelector('.logo');
+        const originalText = logo.textContent.replace('_', '');
+        let cursorVisible = true;
+        
+        setInterval(() => {
+            cursorVisible = !cursorVisible;
+            logo.innerHTML = originalText + (cursorVisible ? '<span class="cursor"></span>' : '');
+        }, 500);
+    </script>
+</body>
+</html>
