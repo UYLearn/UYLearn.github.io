@@ -294,10 +294,17 @@
 </div>
 
 
-        <div class="input-group">
-          <input type="email" id="email" name="entry.1045781291" required placeholder=" ">
-          <label for="email">Your Email</label>
-        </div>
+       <div class="input-group">
+  <input type="email" 
+         id="email" 
+         name="entry.1045781291" 
+         required 
+         placeholder=" "
+         pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$"
+         title="Enter a valid email address (e.g., name@example.com)">
+  <label for="email">Your Email</label>
+</div>
+
 
         <!-- Country Code Dropdown -->
 <div class="input-group custom-group">
