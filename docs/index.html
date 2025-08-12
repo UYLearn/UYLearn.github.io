@@ -282,9 +282,17 @@
       <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSe6L3ioIJnyb59J-nNgZHhYjeCbcrkasc-ggjIB1p8t2dHYyg/formResponse" method="POST" target="hidden_iframe">
         
         <div class="input-group">
-          <input type="text" id="name" name="entry.2005620554" required placeholder=" ">
-          <label for="name">Your Name</label>
-        </div>
+  <input type="text" 
+         id="name" 
+         name="entry.2005620554" 
+         required 
+         placeholder=" " 
+         pattern="[A-Za-z\s]+" 
+         title="Only alphabets and spaces are allowed"
+         oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
+  <label for="name">Your Name</label>
+</div>
+
 
         <div class="input-group">
           <input type="email" id="email" name="entry.1045781291" required placeholder=" ">
