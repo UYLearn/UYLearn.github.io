@@ -1121,146 +1121,240 @@ footer .social-icons img:hover {
   transform: translateX(0);
 }
 @media (max-width: 768px) {
-  .popup {
-    bottom: 10px;
-    left: 10px;
-    padding: 12px 18px;
-    font-size: 0.83rem;
-  }
-}
-
-/* Popup Overlay */
+ /* Popup Overlay */
 .popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
 }
 
-/* Popup Box */
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Popup Content */
 .popup-content {
-  background: #fff;
-  border-radius: 20px;
-  max-width: 900px;
-  width: 100%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  position: relative;
-  animation: fadeInUp 0.5s ease;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
 }
 
-@keyframes fadeInUp {
-  from {transform: translateY(20px); opacity: 0;}
-  to {transform: translateY(0); opacity: 1;}
+.popup-overlay.active .popup-content {
+    transform: scale(1);
 }
 
 /* Close Button */
 .close-btn {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 24px;
-  cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
-/* Grid Layout */
-.popup-grid {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 30px;
-  gap: 20px;
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: rotate(90deg);
 }
 
-/* Text Content */
-.popup-text {
-  flex: 1 1 300px;
+/* Popup Header */
+.popup-header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    position: relative;
 }
 
-.popup-text h2 {
-  color: #ffc107;
-  font-size: 32px;
-  margin-bottom: 10px;
-  font-weight: 800;
+.popup-logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.popup-text h3 {
-  font-size: 22px;
-  margin-bottom: 15px;
-  font-weight: 600;
+.popup-logo span {
+    color: #ffc107;
 }
 
-.popup-text .highlight {
-  color: #0073e6;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.popup-text .batch-date {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-/* Learn More Button */
-.learn-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ffd700;
-  color: #003366;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.learn-btn:hover {
-  background-color: #ffc107;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-}
-
-/* Contact Info */
-.contact-info {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-/* Image Section */
-.popup-image {
-  flex: 1 1 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.popup-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-/* Mobile Responsive */
-@media(max-width: 768px) {
-  .popup-grid {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .popup-content {
-    max-width: 95%;
-  }
-
-  .popup-text h2 {
-    font-size: 26px;
-  }
-
-  .popup-text h3 {
+.popup-tagline {
     font-size: 18px;
-  }
+    margin-bottom: 10px;
+    color: #e3f2fd;
 }
 
+.popup-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 15px 0;
+    color: #ffc107;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Popup Body */
+.popup-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popup-image {
+    flex: 1;
+    min-width: 300px;
+    background: #f5f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.popup-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.popup-text {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup-benefits {
+    margin: 20px 0;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+.benefit-item i {
+    color: #2e7d32;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.popup-cta {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.6);
+}
+
+.popup-contact {
+    text-align: center;
+    margin-top: 20px;
+    color: #546e7a;
+    font-size: 16px;
+}
+
+.popup-contact div {
+    margin: 8px 0;
+}
+
+.popup-contact i {
+    margin-right: 10px;
+    color: #1a237e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup-body {
+        flex-direction: column;
+    }
+    
+    .popup-title {
+        font-size: 28px;
+    }
+    
+    .popup-text, .popup-image {
+        width: 100%;
+    }
+    
+    .popup-content {
+        max-width: 100%;
+    }
+    
+    .close-btn {
+        top: 10px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-header {
+        padding: 20px 15px;
+    }
+    
+    .popup-title {
+        font-size: 24px;
+    }
+    
+    .popup-tagline {
+        font-size: 16px;
+    }
+    
+    .popup-text {
+        padding: 20px;
+    }
+    
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
