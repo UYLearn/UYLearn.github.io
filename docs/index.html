@@ -675,12 +675,48 @@
 
 
    <!-- Popup Container -->
-<div id="popup" class="popup">
+<div id="notifPopup" class="popup">
   <span id="popup-text"></span>
 </div>
 
+<!-- ---------------- Big Overlay Popup ---------------- -->
+<div id="mainPopup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+
+    <div class="popup-header">
+      <h2 class="popup-title">🚀 Microsoft Intune Live Classes</h2>
+      <p class="popup-tagline">Get job-ready skills in Microsoft Intune and stand out in the tech industry.</p>
+    </div>
+
+    <div class="popup-body">
+      <div class="popup-image">
+        <img src="ad.jpg" alt="Training" class="popup-img">
+      </div>
+      <div class="popup-text">
+        <div class="popup-benefits">
+          <div class="benefit-item">✅ Assistance with Scheduling & Interviews</div>
+          <div class="benefit-item">✅ Live Interactive Classes</div>
+          <div class="benefit-item">✅ Personalized Learning Plans</div>
+          <div class="benefit-item">✅ Certificate of Completion</div>
+          <div class="benefit-item">✅ Discussion Forums</div>
+        </div>
+        <h3 class="popup-highlight">📅 Batch Starts Soon</h3>
+        <a href="Courses/Cloud/CLindex.html#courses12" class="cta-button">Join Now</a>
+
+        <div class="popup-contact">
+          📧 info@untilyoulearn.com <br> 📞 +91 9220698666
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // List of names and courses for popup notifications
+  // ---------------- Notification Popup ----------------
+  const notifPopup = document.getElementById("notifPopup");
+  const notifText = document.getElementById("popup-text");
+
   const notifications = [
     { name: "Lavin", course: "Cloud Computing" },
     { name: "Rahul", course: "Data Science" },
@@ -689,30 +725,42 @@
     { name: "Priya", course: "Data Science" },
   ];
 
-  const popup = document.getElementById("popup");
-
-  function showPopup(){
-    // Choose a random notification
+  function showPopup() {
     const notification = notifications[Math.floor(Math.random() * notifications.length)];
+    notifText.innerHTML = `${notification.name} just registered for ${notification.course}`;
+    notifPopup.classList.add("active");
 
-    // Update popup text
-    document.getElementById("popup-text").innerHTML = `${notification.name} just registered for ${notification.course}`;
-
-    // show popup
-    popup.classList.add("active");
-
-    // Hide after 3 seconds
-    setTimeout(function(){
-      popup.classList.remove("active");
-
-      // Loop again after a delay
-      setTimeout(showPopup, 5000);
+    setTimeout(() => {
+      notifPopup.classList.remove("active");
+      setTimeout(showPopup, 5000); // loop again
     }, 3000);
   }
 
-  // Start notifications after a short delay
-  setTimeout(showPopup, 1000);
+  setTimeout(showPopup, 1000); // start after 1s
+
+  // ---------------- Main Overlay Popup ----------------
+  const mainPopup = document.getElementById("mainPopup");
+
+  // Auto-open after 2s
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      mainPopup.classList.add("active");
+    }, 2000);
+  });
+
+  // Close function (used by ❌)
+  function closePopup() {
+    mainPopup.classList.remove("active");
+  }
+
+  // Close when clicking outside content
+  mainPopup.addEventListener("click", (e) => {
+    if (e.target === mainPopup) {
+      closePopup();
+    }
+  });
 </script>
+
 
 
 </body>
