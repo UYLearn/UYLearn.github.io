@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form</title>
+
+  <!-- Font Awesome (fixed) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Supabase JS -->
+
+</head>
+<body>
+  <form id="contactForm">
+    <div class="input-group">
+      <input type="text" id="name" required placeholder=" " />
+      <label for="name">Your Name</label>
+    </div>
+
+    <div class="input-group">
+      <input type="email" id="email" required placeholder=" " />
+      <label for="email">Your Email</label>
+    </div>
+
+    <div class="input-group">
+      <select id="countryCode" required>
+        <option value="" disabled selected hidden></option>
+        <option value="+91">+91 (India)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+44">+44 (UK)</option>
+      </select>
+      <label for="countryCode">Country Code</label>
+    </div>
+
+    <div class="input-group">
+      <input type="tel" id="phone" required pattern="[0-9]{10}" maxlength="10" placeholder=" " />
+      <label for="phone">Phone Number</label>
+    </div>
+
+    <div class="input-group">
+      <select id="course" required>
+        <option value="" disabled selected hidden></option>
+        <option value="Cloud">Cloud Computing</option>
+        <option value="Data Science">Data Science</option>
+        <option value="Ethical Hacking">Ethical Hacking</option>
+        <option value="SCCM">SCCM</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Other">Other</option>
+      </select>
+      <label for="course">Course</label>
+    </div>
+
+    <div class="input-group">
+      <select id="courseType" required>
+        <option value="" disabled selected hidden></option>
+        <option value="Seminar">Seminar</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Full Training">Full Training</option>
+      </select>
+      <label for="courseType">Course Type</label>
+    </div>
+
+    <div class="input-group">
+      <textarea id="message" rows="4" required placeholder=" "></textarea>
+      <label for="message">Your Message</label>
+    </div>
+
+    <button type="submit" class="send-btn">Send Message</button>
+  </form>
+
+<!-- Wait for DOM and Supabase to be ready -->
+<script>
+  window.addEventListener("load", function () {
+    const { createClient } = supabase;
+    const supabaseClient = createClient(
+      'https://vzbgeqlakkvmjjbesuml.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6YmdlcWxha2t2bWpqYmVzdW1sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg2OTMyMzUsImV4cCI6MjA3NDI2OTIzNX0.OYZZ0VSm1hY2D4Nf5iiM51oCnVY4rreawMJumpQ50aA'
+    );
+
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        country_code: document.getElementById("countryCode").value,
+        phone: document.getElementById("phone").value.trim(),
+        course: document.getElementById("course").value,
+        course_type: document.getElementById("courseType").value,
+        message: document.getElementById("message").value.trim(),
+        submitted_at: new Date().toISOString()
+      };
+
+      console.log("Submitting to Supabase:", formData);
+
+      const { error } = await supabaseClient.from('contact_form').insert([formData]);
+
+      if (error) {
+        alert("Oops! Something went wrong. Please try again.");
+        console.error("Supabase error:", error);
+      } else {
+        alert("Thank you! Your message has been sent.");
+        document.getElementById("contactForm").reset();
+        document.querySelectorAll(".input-group").forEach(g => g.classList.remove("focused"));
+      }
+    });
+  });
+</script>
+</body>
+</html>

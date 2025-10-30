@@ -831,8 +831,8 @@ nav {
 
 .contact-description {
   font-size: 1.2rem;
-  margin-bottom: 30px;
-  opacity: 0.8;
+  margin-bottom: 40px;
+  opacity: 0.85;
 }
 
 /* Contact Form Styling */
@@ -840,19 +840,21 @@ nav {
   max-width: 600px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
+  padding: 35px 25px;
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Input Group Styling */
 .input-group {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .input-group input,
-.input-group textarea {
+.input-group textarea,
+.input-group select {
   width: 100%;
   padding: 15px;
   border: none;
@@ -861,38 +863,25 @@ nav {
   background: rgba(255, 255, 255, 0.2);
   color: white;
   outline: none;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
-.input-group label {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-size: 1rem;
-  color: white;
-  transition: 0.3s;
-}
-
-.input-group input:focus ~ label,
-.input-group textarea:focus ~ label,
-.input-group.focused label {
-  top: -10px;
-  left: 10px;
-  font-size: 0.8rem;
-  color: #ffcc00;
-}
-
+/* Floating Labels */
 .input-group label {
   position: absolute;
   top: 15px;
   left: 15px;
   font-size: 1rem;
   color: #ffffff;
+  pointer-events: none;
   transition: 0.3s ease-in-out;
 }
 
-/* Float label up when select is focused or filled */
+.input-group input:focus ~ label,
+.input-group textarea:focus ~ label,
 .input-group select:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label,
 .input-group select:not([value=""]) ~ label {
   top: -10px;
   left: 10px;
@@ -900,87 +889,35 @@ nav {
   color: #ffcc00;
 }
 
-/* Keep hover and focus effects for select */
-.input-group select:hover,
-.input-group select:focus {
-  box-shadow: 0 0 10px #ffcc00;
-}
-
-/* Style for the input group */
-.input-group {
-  position: relative;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-
-
-/* Label Styling */
-.input-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #ffffff;
-}
-
-.custom-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #ffffff;
-}
-
-/* Custom Select Wrapper */
+/* Custom Select */
 .custom-select {
   position: relative;
-  width: 100%;
 }
 
-/* Styled Select Dropdown with Gradient Background */
 .custom-select select {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  background: linear-gradient(135deg, #2c3e50, #3498db); /* Gradient Background */
-  color: #ffffff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
-/* Hover and Focus Effects */
-.custom-select select:hover,
-.custom-select select:focus {
-  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
-  outline: none;
-}
-
-/* Dropdown Arrow Customization */
 .custom-select::after {
-  content: "\25BC"; /* Downward arrow */
+  content: "\25BC";
   position: absolute;
   top: 50%;
   right: 12px;
   transform: translateY(-50%);
   font-size: 16px;
-  color: #ffffff;
+  color: white;
   pointer-events: none;
 }
 
-/* Remove Default Select Arrow in Some Browsers */
-.custom-select select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-/* Smooth Transition */
+/* Options styling */
 .custom-select select option {
   background: #ffffff;
-  color: #000;
+  color: #000000;
 }
 
 /* Send Button */
@@ -1002,31 +939,12 @@ nav {
   color: #3498db;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .contact-form {
-    padding: 20px;
+    padding: 25px 15px;
   }
 }
-
-/* ======= COLOR FIXES TO UNIFY ALL INPUTS, TEXTAREA, SELECT ====== */
-.input-group input,
-.input-group textarea,
-.custom-select select {
-  background: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
-}
-
-.input-group input::placeholder,
-.input-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.custom-select select option {
-  background: #ffffff;
-  color: #000000;
-}
-
 /* Footer Styling */
 .footer {
   background: linear-gradient(135deg, #2c3e50, #3498db);
