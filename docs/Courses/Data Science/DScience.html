@@ -217,6 +217,23 @@ html, body {
     font-size: 16px;
     color: #333;
 }
+/* Top Ribbon Strip */
+.top-ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ff4d4d;
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 
 /* Hover Effects (Disable for Mobile) */
 @media (hover: hover) {
@@ -442,11 +459,13 @@ html, body {
                 <h3>Python</h3>
                 <p>Leverage powerful libraries for data analysis and machine learning.</p>
             </div>
-            <div class="card" onclick="navigateTo('Stage3.html')">
-                <img src="ADVANCE XL.jpg" alt="Advance XL">
-                <h3>Advanced Excel</h3>
-                <p>Master advanced Excel techniques for data analysis.</p>
-            </div>
+           <div class="card" onclick="navigateTo('Stage3.html')">
+    <div class="top-ribbon">Batch Starting Soon</div>
+    <img src="ADVANCE XL.jpg" alt="Advance XL">
+    <h3>Advanced Excel</h3>
+    <p>Master advanced Excel techniques for data analysis.</p>
+</div>
+
         </div>
     </div>
 </section>

@@ -679,91 +679,92 @@
 
 
    <!-- Popup Container -->
-<div id="notifPopup" class="popup">
-  <span id="popup-text"></span>
-</div>
-
-<!-- ---------------- Big Overlay Popup ---------------- -->
-<div id="mainPopup" class="popup-overlay">
+<!-- Excel Course Popup -->
+<div id="excelPopup" class="popup-overlay">
   <div class="popup-content">
     <span class="close-btn" onclick="closePopup()">&times;</span>
 
     <div class="popup-header">
-      <h2 class="popup-title">🚀 Microsoft Intune Live Classes</h2>
-      <p class="popup-tagline">Get job-ready skills in Microsoft Intune and stand out in the tech industry.</p>
+      <h2 class="popup-title">📊 Microsoft Excel Masterclass</h2>
+      <p class="popup-tagline">
+        Master Excel skills to boost your productivity and career growth.
+      </p>
     </div>
 
     <div class="popup-body">
       <div class="popup-image">
-        <img src="ad.jpg" alt="Training" class="popup-img">
+        <img src="excel-course.jpg" alt="Excel Training" class="popup-img" />
       </div>
+
       <div class="popup-text">
         <div class="popup-benefits">
-          <div class="benefit-item">✅ Assistance with Scheduling & Interviews</div>
-          <div class="benefit-item">✅ Live Interactive Classes</div>
-          <div class="benefit-item">✅ Personalized Learning Plans</div>
-          <div class="benefit-item">✅ Certificate of Completion</div>
-          <div class="benefit-item">✅ Discussion Forums</div>
+          <div class="benefit-item">✅ For Freshers as well as Experienced Professionals</div>
+          <div class="benefit-item">✅ Data Cleaning Techniques</div>
+          <div class="benefit-item">✅ Conditional Formatting & Data Validation</div>
+          <div class="benefit-item">✅ Lookup Functions (VLOOKUP, XLOOKUP, INDEX-MATCH)</div>
+          <div class="benefit-item">✅ Error Handling & Formula Debugging</div>
+          <div class="benefit-item">✅ Working with Large Data Efficiently</div>
+          <div class="benefit-item">✅ Shortcut Keys for Faster Navigation</div>
         </div>
+
         <h3 class="popup-highlight">📅 Batch Starts Soon</h3>
-        <a href="Courses/Cloud/CLindex.html#courses12" class="cta-button">Join Now</a>
+        <a href="Courses/Data Science/DScience.html#skills" class="cta-button">Join Now</a>
 
         <div class="popup-contact">
-          📧 info@untilyoulearn.com <br> 📞 +91 9220698666
+          📧 info@untilyoulearn.com <br />
+          📞 +91 9220698666
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
 
+const popup = document.getElementById("excelPopup");
+
+function openPopup() {
+  popup.classList.add("active");
+}
+
+function closePopup() {
+  popup.classList.remove("active");
+}
+
+// Auto-open popup after 4 seconds
+setTimeout(openPopup, 4000);
+</script>
+
+  <div id="notifBanner" class="notification-banner">
+  <span id="banner-text"></span>
+</div>
 <script>
   // ---------------- Notification Popup ----------------
-  const notifPopup = document.getElementById("notifPopup");
-  const notifText = document.getElementById("popup-text");
+const notificationBanner = document.getElementById("notifBanner");
+const bannerText = document.getElementById("banner-text");
 
-  const notifications = [
-    { name: "Lavin", course: "Cloud Computing" },
-    { name: "Rahul", course: "Data Science" },
-    { name: "Apporva", course: "Ethical Hacking" },
-    { name: "Abhishek", course: "SCCM" },
-    { name: "Priya", course: "Data Science" },
-  ];
+const notifications = [
+  { name: "Lavin", course: "Cloud Computing" },
+  { name: "Rahul", course: "Data Science" },
+  { name: "Apporva", course: "Ethical Hacking" },
+  { name: "Abhishek", course: "SCCM" },
+  { name: "Priya", course: "Data Science" },
+];
 
-  function showPopup() {
-    const notification = notifications[Math.floor(Math.random() * notifications.length)];
-    notifText.innerHTML = `${notification.name} just registered for ${notification.course}`;
-    notifPopup.classList.add("active");
+function showBanner() {
+  const randomNote = notifications[Math.floor(Math.random() * notifications.length)];
+  bannerText.innerHTML = `${randomNote.name} just registered for ${randomNote.course}`;
+  notificationBanner.classList.add("active");
 
-    setTimeout(() => {
-      notifPopup.classList.remove("active");
-      setTimeout(showPopup, 5000); // loop again
-    }, 3000);
-  }
+  setTimeout(() => {
+    notificationBanner.classList.remove("active");
+    setTimeout(showBanner, 5000); // loop again
+  }, 3000);
+}
 
-  setTimeout(showPopup, 1000); // start after 1s
+setTimeout(showBanner, 1000); // start after 1s
 
-  // ---------------- Main Overlay Popup ----------------
-  const mainPopup = document.getElementById("mainPopup");
-
-  // Auto-open after 2s
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      mainPopup.classList.add("active");
-    }, 2000);
-  });
-
-  // Close function (used by ❌)
-  function closePopup() {
-    mainPopup.classList.remove("active");
-  }
-
-  // Close when clicking outside content
-  mainPopup.addEventListener("click", (e) => {
-    if (e.target === mainPopup) {
-      closePopup();
-    }
-  });
 </script>
+
 
 
 
