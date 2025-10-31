@@ -298,6 +298,13 @@
           <label for="email">Your Email</label>
         </div>
 
+        <div class="input-group">
+  <input type="date" id="dob" required placeholder=" " />
+  <label for="dob">Date of Birth</label>
+</div>
+
+
+
         <div class="input-group custom-select">
           <select id="countryCode" required>
             <option value="" disabled selected hidden>Select Country Code</option>
@@ -534,11 +541,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   email: document.getElementById("email").value.trim(),
   country_code: document.getElementById("countryCode").value,
   phone: document.getElementById("phone").value.trim(),
-  course: document.getElementById("course").value,        // ✅ added
-  course_type: document.getElementById("courseType").value, // ✅ added
+  dob: document.getElementById("dob").value, // ✅ Added this line
+  course: document.getElementById("course").value, // ✅ already there
+  course_type: document.getElementById("courseType").value, // ✅ already there
   message: document.getElementById("message").value.trim(),
   submitted_at: new Date().toISOString(),
 };
+
 
 
     console.log("Submitting to Supabase:", formData);
