@@ -652,8 +652,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 <!-- Excel Course Popup -->
 <div id="excelPopup" class="popup-overlay">
   <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <!-- Close Button -->
+    <button class="close-btn" onclick="closePopup()" aria-label="Close popup">&times;</button>
 
+    <!-- Header -->
     <div class="popup-header">
       <h2 class="popup-title">📊 Microsoft Excel Masterclass</h2>
       <p class="popup-tagline">
@@ -661,21 +663,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       </p>
     </div>
 
+    <!-- Body: Image Left, Text Right -->
     <div class="popup-body">
+      <!-- Left Image -->
       <div class="popup-image">
         <img src="excel.png" alt="Excel Training" class="popup-img" />
       </div>
 
-      <div class="popup-text">
-        <div class="popup-benefits">
-          <div class="benefit-item">✅ For Freshers as well as Experienced Professionals</div>
-          <div class="benefit-item">✅ Data Cleaning Techniques</div>
-          <div class="benefit-item">✅ Conditional Formatting & Data Validation</div>
-          <div class="benefit-item">✅ Lookup Functions (VLOOKUP, XLOOKUP, INDEX-MATCH)</div>
-          <div class="benefit-item">✅ Error Handling & Formula Debugging</div>
-          <div class="benefit-item">✅ Working with Large Data Efficiently</div>
-          <div class="benefit-item">✅ Shortcut Keys for Faster Navigation</div>
-        </div>
+      <!-- Right Text Section -->
+      <div class="popup-text-section">
+        <ul class="popup-benefits">
+          <li>For Freshers as well as Experienced Professionals</li>
+          <li>Data Cleaning Techniques</li>
+          <li>Conditional Formatting & Data Validation</li>
+          <li>Lookup Functions (VLOOKUP, XLOOKUP, INDEX-MATCH)</li>
+          <li>Error Handling & Formula Debugging</li>
+          <li>Working with Large Data Efficiently</li>
+          <li>Shortcut Keys for Faster Navigation</li>
+        </ul>
 
         <h3 class="popup-highlight">📅 Batch Starts Soon</h3>
         <a href="Courses/Data Science/DScience.html#skills" class="cta-button">Join Now</a>
@@ -688,6 +693,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     </div>
   </div>
 </div>
+
 <script>
 
 const popup = document.getElementById("excelPopup");
