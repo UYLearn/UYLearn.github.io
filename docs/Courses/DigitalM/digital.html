@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Until You Learn | Digital Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f5f2ee;
+      --bg2: #edeae5;
+      --ink: #0f0e0c;
+      --ink2: #3a3830;
+      --muted: #857f74;
+      --card-bg: #ffffff;
+      --blue: #1a56ff;
+      --blue-dark: #0f3fd4;
+      --blue-light: #e8eeff;
+      --teal: #00c4a0;
+      --orange: #ff5c2b;
+      --purple: #7c3aed;
+      --pink: #e8196a;
+      --yellow: #f5b800;
+      --border: #e0dbd3;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,242,238,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 56px;
+      height: 68px;
+    }
+
+    .nav-logo-link {
+      display: flex; align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo-link img {
+      height: 42px; width: auto;
+    }
+
+    .nav-links {
+      display: flex; gap: 36px; list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 11px 26px;
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--blue); transform: translateY(-1px); }
+
+    /* ── HERO BAND ── */
+    .hero-band {
+      background: var(--ink);
+      padding: 88px 56px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-band::before {
+      content: 'DIGITAL';
+      position: absolute;
+      right: -20px; bottom: -30px;
+      font-family: var(--font-head);
+      font-size: 200px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .hero-dots {
+      position: absolute; top: 40px; right: 56px;
+      display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px;
+    }
+
+    .hero-dots span {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: block;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 700px;
+    }
+
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(26,86,255,0.2);
+      border: 1px solid rgba(26,86,255,0.4);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #7fa4ff;
+      margin-bottom: 28px;
+    }
+
+    .hero-pill .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(48px, 6vw, 82px);
+      font-weight: 800;
+      line-height: 1.02;
+      color: #ffffff;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .blue { color: var(--blue); }
+    .hero-title .outline {
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
+      color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex; gap: 14px; align-items: center;
+    }
+
+    .btn-blue {
+      font-family: var(--font-head);
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.3px;
+      padding: 14px 36px;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); }
+
+    .btn-ghost-light {
+      font-family: var(--font-head);
+      font-size: 14px; font-weight: 600;
+      padding: 14px 28px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-ghost-light:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    .hero-stats {
+      display: flex; gap: 48px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .h-stat-num {
+      font-family: var(--font-head);
+      font-size: 36px; font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .h-stat-num sup { font-size: 18px; color: var(--blue); }
+
+    .h-stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SECTION ── */
+    .courses-section {
+      padding: 88px 56px 100px;
+    }
+
+    .section-top {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 56px;
+      flex-wrap: wrap; gap: 24px;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--blue);
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 4.5vw, 58px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .section-right {
+      max-width: 340px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .count-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 12px; font-weight: 600;
+      padding: 6px 14px; border-radius: 100px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 32px 30px;
+      display: flex; flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border-color: transparent;
+    }
+
+    /* accent stripe per card */
+    .card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .card:hover::after { transform: scaleX(1); }
+
+    .card-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      flex-shrink: 0;
+    }
+
+    .card-category {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      flex-grow: 1;
+      margin-bottom: 24px;
+    }
+
+    .card-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--ink2);
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 5px 13px;
+      border-radius: 100px;
+      font-weight: 400;
+    }
+
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-link {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 12px; }
+
+    .card-duration {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    /* glow blob on hover */
+    .card-glow {
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0;
+      filter: blur(60px);
+      top: -60px; right: -60px;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .card:hover .card-glow { opacity: 0.06; }
+
+    /* last row centering when odd */
+    .cards-grid .card:last-child:nth-child(3n+1) {
+      grid-column: 2;
+    }
+
+    /* ── BOTTOM BANNER ── */
+    .bottom-banner {
+      margin: 0 56px 80px;
+      background: var(--ink);
+      border-radius: 20px;
+      padding: 56px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bottom-banner::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: 0.08;
+      filter: blur(60px);
+    }
+
+    .banner-text h3 {
+      font-family: var(--font-head);
+      font-size: 32px; font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .banner-text p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      max-width: 440px;
+      line-height: 1.6;
+    }
+
+    .banner-actions {
+      display: flex; gap: 12px; flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 32px 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+    footer .blue { color: var(--blue); }
+
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      nav { padding: 0 28px; }
+      .hero-band, .courses-section { padding-left: 28px; padding-right: 28px; }
+      .bottom-banner { margin: 0 28px 60px; padding: 40px 36px; }
+      footer { padding: 28px; }
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      .cards-grid .card:last-child:nth-child(3n+1) { grid-column: auto; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      nav { padding: 0 20px; }
+      .hero-band { padding: 56px 20px; }
+      .courses-section { padding: 56px 20px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .section-top { flex-direction: column; align-items: flex-start; }
+      .bottom-banner { flex-direction: column; margin: 0 20px 48px; }
+      .banner-actions { flex-direction: column; width: 100%; }
+      footer { flex-direction: column; gap: 16px; padding: 24px 20px; }
+      .hero-stats { flex-wrap: wrap; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../../index.html" class="logo nav-logo-link">
+      <img src="UYL_logo (1).png" alt="UYL Logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <a href="../../index.html#contact-section" class="nav-cta">Book Free Class</a>
+  </nav>
+
+  <!-- HERO BAND -->
+  <div class="hero-band">
+    <div class="hero-dots">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-pill"><span class="dot"></span> New Batch Starting Soon</div>
+      <h1 class="hero-title">
+        Master <span class="blue">Digital</span><br>
+        <span class="outline">Marketing</span>
+      </h1>
+      <p class="hero-desc">Learn the skills that drive the modern economy. From SEO to paid ads, content to analytics — build a career the internet demands.</p>
+      <div class="hero-actions">
+        <a href="../../index.html#contact-section" class="btn-blue">Enroll Now</a>
+        <a href="#courses" class="btn-ghost-light">Explore Courses</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="h-stat-num">8<sup>+</sup></div>
+          <div class="h-stat-label">Specializations</div>
+        </div>
+        <div>
+          <div class="h-stat-num">100<sup>%</sup></div>
+          <div class="h-stat-label">Practical Learning</div>
+        </div>
+        <div>
+          <div class="h-stat-num">Live<sup> ✦</sup></div>
+          <div class="h-stat-label">Industry Projects</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COURSES SECTION -->
+  <section class="courses-section" id="courses">
+
+    <div class="section-top">
+      <div>
+        <div class="section-tag">What We Teach</div>
+        <h2 class="section-title">Our <em>Disciplines</em></h2>
+      </div>
+      <div class="section-right">
+        <p class="section-desc">Each course is crafted for real-world results. Pick your domain and go deep with hands-on training from working professionals.</p>
+        <span class="count-badge">✦ 8 Courses Available</span>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- SEO -->
+      <div class="card" style="--accent:#1a56ff; --accent-light:#e8eeff;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">🔍</div>
+        <div class="card-category">Search</div>
+        <h3 class="card-title">SEO</h3>
+        <p class="card-desc">Rank higher on Google. Master on-page, off-page, and technical SEO to drive organic traffic at scale.</p>
+        <div class="card-tags">
+          <span class="tag">On-Page</span>
+          <span class="tag">Backlinks</span>
+          <span class="tag">Technical SEO</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 6 Weeks</span>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="card" style="--accent:#e8196a; --accent-light:#fde8f1;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">📱</div>
+        <div class="card-category">Social</div>
+        <h3 class="card-title">Social Media Marketing</h3>
+        <p class="card-desc">Build brand presence across Instagram, LinkedIn, and X. Create content that converts followers into customers.</p>
+        <div class="card-tags">
+          <span class="tag">Instagram</span>
+          <span class="tag">LinkedIn</span>
+          <span class="tag">Strategy</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 5 Weeks</span>
+        </div>
+      </div>
+
+      <!-- Content Marketing -->
+      <div class="card" style="--accent:#00c4a0; --accent-light:#e0faf5;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">✍️</div>
+        <div class="card-category">Content</div>
+        <h3 class="card-title">Content Marketing</h3>
+        <p class="card-desc">Craft compelling stories that attract, engage and retain audiences. Build authority through blogs, videos and newsletters.</p>
+        <div class="card-tags">
+          <span class="tag">Copywriting</span>
+          <span class="tag">Blogging</span>
+          <span class="tag">Storytelling</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 4 Weeks</span>
+        </div>
+      </div>
+
+      <!-- PPC -->
+      <div class="card" style="--accent:#ff5c2b; --accent-light:#fff0eb;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">📊</div>
+        <div class="card-category">Paid Ads</div>
+        <h3 class="card-title">PPC / Google Ads</h3>
+        <p class="card-desc">Run profitable paid campaigns on Google and Meta. Learn bidding, targeting, and conversion optimisation.</p>
+        <div class="card-tags">
+          <span class="tag">Google Ads</span>
+          <span class="tag">Meta Ads</span>
+          <span class="tag">ROI</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 6 Weeks</span>
+        </div>
+      </div>
+
+      <!-- Email Marketing -->
+      <div class="card" style="--accent:#7c3aed; --accent-light:#f0eaff;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">📧</div>
+        <div class="card-category">Email</div>
+        <h3 class="card-title">Email Marketing</h3>
+        <p class="card-desc">Design high-converting email campaigns. Master automation, segmentation and lifecycle marketing flows.</p>
+        <div class="card-tags">
+          <span class="tag">Automation</span>
+          <span class="tag">Segmentation</span>
+          <span class="tag">Drip Flows</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 4 Weeks</span>
+        </div>
+      </div>
+
+      <!-- Video Marketing -->
+      <div class="card" style="--accent:#f5b800; --accent-light:#fff8e0;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">🎬</div>
+        <div class="card-category">Video</div>
+        <h3 class="card-title">Video Marketing</h3>
+        <p class="card-desc">Create scroll-stopping video content for YouTube, Reels and ads. Learn scripting, production and distribution.</p>
+        <div class="card-tags">
+          <span class="tag">YouTube</span>
+          <span class="tag">Reels</span>
+          <span class="tag">Production</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 5 Weeks</span>
+        </div>
+      </div>
+
+      <!-- Affiliate Marketing -->
+      <div class="card" style="--accent:#00c4a0; --accent-light:#e0faf5;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">🤝</div>
+        <div class="card-category">Affiliate</div>
+        <h3 class="card-title">Affiliate Marketing</h3>
+        <p class="card-desc">Build passive income streams through affiliate networks. Learn partner recruitment, tracking and commission strategies.</p>
+        <div class="card-tags">
+          <span class="tag">Networks</span>
+          <span class="tag">Tracking</span>
+          <span class="tag">Monetisation</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 4 Weeks</span>
+        </div>
+      </div>
+
+      <!-- Web Analytics -->
+      <div class="card" style="--accent:#1a56ff; --accent-light:#e8eeff;">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">📈</div>
+        <div class="card-category">Analytics</div>
+        <h3 class="card-title">Web Analytics</h3>
+        <p class="card-desc">Turn data into decisions. Master Google Analytics 4, heatmaps, and reporting dashboards to optimise every campaign.</p>
+        <div class="card-tags">
+          <span class="tag">GA4</span>
+          <span class="tag">Dashboards</span>
+          <span class="tag">Data Studio</span>
+        </div>
+        <div class="card-footer">
+          <a href="../../index.html#contact-section" class="card-link">START TRAINING →</a>
+          <span class="card-duration">⏱ 3 Weeks</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOTTOM BANNER -->
+  <div class="bottom-banner">
+    <div class="banner-text">
+      <h3>Not sure where to start?</h3>
+      <p>Talk to our team and we'll help you pick the right specialisation based on your goals and experience level.</p>
+    </div>
+    <div class="banner-actions">
+      <a href="../../index.html#contact-section" class="btn-blue">Book a Free Consultation</a>
+      <a href="#courses" class="btn-ghost-light">Browse All Courses</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <span class="blue">Until You Learn</span>. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Staggered card reveal on scroll
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+</html>

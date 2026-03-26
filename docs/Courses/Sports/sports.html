@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Until You Learn | Master Your Discipline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #0d0d0d;
+      --card-bg: #1a1a1a;
+      --card-border: #2e2e2e;
+      --gold: #c9942a;
+      --gold-light: #e0a830;
+      --white: #ffffff;
+      --muted: #888888;
+      --tag-bg: #2a2a2a;
+      --tag-border: #3a3a3a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Open Sans', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,13,0.97);
+      border-bottom: 1px solid #1f1f1f;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+
+    a.logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    .nav-logo-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--white);
+    }
+    .nav-logo-text span { color: var(--gold); }
+
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #cccccc;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 11px 26px;
+      background: var(--gold);
+      color: var(--black);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-radius: 2px;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── SECTION ── */
+    .disciplines-section {
+      padding: 80px 60px 100px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(42px, 5.5vw, 68px);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 64px;
+      line-height: 1;
+    }
+
+    .section-title .gold { color: var(--gold); }
+
+    /* ── GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    /* Last row: 2 cards centered */
+    .cards-grid .card:nth-child(4) {
+      grid-column: 1;
+    }
+    .cards-grid .card:nth-child(5) {
+      grid-column: 2;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 36px 32px 32px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .card:hover {
+      border-color: #444;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,148,42,0.1);
+    }
+
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: #aaaaaa;
+      line-height: 1.7;
+      flex-grow: 1;
+      margin-bottom: 24px;
+    }
+
+    .card-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: #aaaaaa;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .card-link {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+      transition: gap 0.2s, color 0.2s;
+      width: fit-content;
+    }
+
+    .card-link:hover { gap: 14px; color: var(--gold-light); }
+
+    .card-link .arrow { font-size: 16px; }
+
+    /* ── FOOTER STRIP ── */
+    .footer-strip {
+      background: #111111;
+      border-top: 1px solid #1f1f1f;
+      padding: 32px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .footer-strip p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-strip .gold { color: var(--gold); }
+
+    @media (max-width: 1024px) {
+      .disciplines-section { padding: 60px 30px 80px; }
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      .cards-grid .card:nth-child(4),
+      .cards-grid .card:nth-child(5) { grid-column: auto; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .disciplines-section { padding: 48px 16px 60px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .cards-grid .card:nth-child(4),
+      .cards-grid .card:nth-child(5) { grid-column: auto; }
+      .footer-strip { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../../index.html" class="logo">
+      <img src="UYL_logo (1).png" alt="UYL Logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <a href="../../index.html#contact-section" class="nav-cta">Book Free Class</a>
+  </nav>
+
+  <!-- DISCIPLINES SECTION -->
+  <section class="disciplines-section">
+
+    <p class="section-eyebrow">What We Teach</p>
+    <h2 class="section-title">MASTER YOUR <span class="gold">DISCIPLINE</span></h2>
+
+    <div class="cards-grid">
+
+      <!-- MMA -->
+      <div class="card">
+        <h3 class="card-title">MMA</h3>
+        <p class="card-subtitle">Mixed Martial Arts</p>
+        <p class="card-desc">Complete combat system combining striking, grappling, and ground fighting. Train like a UFC pro.</p>
+        <div class="card-tags">
+          <span class="tag">Striking</span>
+          <span class="tag">Grappling</span>
+          <span class="tag">Submissions</span>
+        </div>
+        <a href="../../index.html#contact-section" class="card-link">START TRAINING <span class="arrow">→</span></a>
+      </div>
+
+      <!-- BJJ -->
+      <div class="card">
+        <h3 class="card-title">BJJ</h3>
+        <p class="card-subtitle">Brazilian Jiu-Jitsu</p>
+        <p class="card-desc">The gentle art of ground control. Learn to submit opponents regardless of size or strength.</p>
+        <div class="card-tags">
+          <span class="tag">Ground Game</span>
+          <span class="tag">Submissions</span>
+          <span class="tag">Defense</span>
+        </div>
+        <a href="../../index.html#contact-section" class="card-link">START TRAINING <span class="arrow">→</span></a>
+      </div>
+
+      <!-- BOXING -->
+      <div class="card">
+        <h3 class="card-title">BOXING</h3>
+        <p class="card-subtitle">Western Boxing</p>
+        <p class="card-desc">The sweet science. Develop devastating hands, footwork, and ring IQ with champion coaches.</p>
+        <div class="card-tags">
+          <span class="tag">Power Punches</span>
+          <span class="tag">Footwork</span>
+          <span class="tag">Defense</span>
+        </div>
+        <a href="../../index.html#contact-section" class="card-link">START TRAINING <span class="arrow">→</span></a>
+      </div>
+
+      <!-- MUAY THAI -->
+      <div class="card">
+        <h3 class="card-title">MUAY THAI</h3>
+        <p class="card-subtitle">Thai Boxing</p>
+        <p class="card-desc">The art of eight limbs. Master kicks, knees, elbows, and the clinch game.</p>
+        <div class="card-tags">
+          <span class="tag">8 Limbs</span>
+          <span class="tag">Clinch</span>
+          <span class="tag">Power</span>
+        </div>
+        <a href="../../index.html#contact-section" class="card-link">START TRAINING <span class="arrow">→</span></a>
+      </div>
+
+      <!-- S&C -->
+      <div class="card">
+        <h3 class="card-title">S&amp;C</h3>
+        <p class="card-subtitle">Strength &amp; Conditioning</p>
+        <p class="card-desc">Athletic performance training designed to build fighters. Explosive power meets endurance.</p>
+        <div class="card-tags">
+          <span class="tag">Strength</span>
+          <span class="tag">Explosiveness</span>
+          <span class="tag">Endurance</span>
+        </div>
+        <a href="../../index.html#contact-section" class="card-link">START TRAINING <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER STRIP -->
+  <div class="footer-strip">
+    <p>© 2026 <span class="gold">Until You Learn</span>. All rights reserved.</p>
+    <p>Gurugram, India &nbsp;·&nbsp; <span class="gold">+91 92206 98666</span></p>
+  </div>
+
+</body>
+</html>

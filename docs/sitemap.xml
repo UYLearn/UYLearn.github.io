@@ -28,4 +28,12 @@
     <loc>https://untilyoulearn.com/Trainers/landing.html</loc>
     <priority>0.64</priority>
   </url>
+    <url>
+    <loc>https://untilyoulearn.com/Courses/DigitalM/digital.html</loc>
+    <priority>0.64</priority>
+  </url>
+    <url>
+    <loc>https://untilyoulearn.com/Courses/Sports/sports.html</loc>
+    <priority>0.64</priority>
+  </url>
 </urlset>
