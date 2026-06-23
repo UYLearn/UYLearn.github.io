@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment | Until You Learn</title>
+    <!-- Tailwind CSS CDN for modern, clean corporate styling inspired by RiseAscend -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#0f172a', // Deep corporate navy
+                        brandAccent: '#2563eb',  // Professional tech blue
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- 1. Header / Navigation Navbar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 dynamic-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Parent Brand & Card Identifier -->
+                <span class="text-xl font-black tracking-tight text-brandPrimary uppercase">Until You Learn</span>
+                <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-semibold text-brandAccent ring-1 ring-inset ring-blue-700/10">Recruitment</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#how-it-works" class="hover:text-brandAccent transition">How It Works</a>
+                <a href="#companies" class="hover:text-brandAccent transition">Partner Companies</a>
+                <a href="#features" class="hover:text-brandAccent transition">Our Process</a>
+            </nav>
+
+            <div>
+                <a href="../../index.html#contact-section" class="bg-brandAccent text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-blue-700 transition">Apply Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="relative bg-white pt-20 pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-brandPrimary leading-tight">
+                    Stop Guessing. <br>
+                    <span class="text-brandAccent">Get Placed</span> In Top Tech Giants.
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Until You Learn Recruitment bridges the gap between ambitious talent and top-tier corporations. We don't just share job listings—we train you, conduct mock corporate interviews, and map you directly to open hiring mandates.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <a href="#register" class="bg-brandPrimary text-white text-center font-medium px-8 py-4 rounded-xl hover:bg-slate-800 transition shadow-lg">Start Your Assessment</a>
+                    <a href="#how-it-works" class="border border-slate-300 text-slate-700 text-center font-medium px-8 py-4 rounded-xl hover:bg-slate-50 transition">See How It Works</a>
+                </div>
+            </div>
+            <!-- Interactive Visual Graphic Placeholder / Side Illustration Frame -->
+            <div class="relative lg:pl-10">
+                <div class="aspect-square rounded-3xl bg-gradient-to-tr from-blue-600 to-indigo-900 p-8 flex flex-col justify-between text-white shadow-2xl">
+                    <div class="space-y-2">
+                        <span class="text-xs uppercase tracking-widest text-blue-200">Live Mock Process</span>
+                        <h3 class="text-2xl font-bold">Cracking the Technical Round</h3>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-5 border border-white/10 space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <span>Technical Assessment Match</span>
+                            <span class="text-emerald-400 font-bold">94%</span>
+                        </div>
+                        <div class="w-full bg-white/20 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-400 h-full w-[94%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. The Marquee/Ticker Section (Inspired directly by riseascendtech.com ticker layout) -->
+    <section class="bg-brandPrimary text-white py-4 overflow-hidden">
+        <div class="whitespace-nowrap flex space-x-12 animate-marquee text-sm font-semibold tracking-wider uppercase opacity-90">
+            <span>• Direct Recruitment Drives</span>
+            <span>• Corporate Mock Interviews</span>
+            <span>• TCS Specific Preparation</span>
+            <span>• Wipro Placement Paths</span>
+            <span>• Continuous Evaluation</span>
+            <span>• Till You Land Your Dream Job</span>
+        </div>
+    </section>
+
+    <!-- 4. How It Works Section (Process Cards Structure) -->
+    <section id="how-it-works" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brandAccent">Our Placement Ecosystem</span>
+                <h2 class="text-3xl font-bold text-brandPrimary mt-2">How We Connect You to Opportunities</h2>
+                <p class="text-slate-600 mt-4">We've engineered a data-driven recruitment pipeline built to mirror elite industry testing workflows.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 text-brandAccent rounded-xl flex items-center justify-center font-bold text-lg mb-6">1</div>
+                    <h3 class="text-xl font-bold text-brandPrimary mb-3">Screening &amp; Alignment</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">We map your baseline code, technical acumen, and communication standards under real exam-room environments.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 text-brandAccent rounded-xl flex items-center justify-center font-bold text-lg mb-6">2</div>
+                    <h3 class="text-xl font-bold text-brandPrimary mb-3">Conducting Mock Interviews</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Go through rigorous, live mock interview drills led by field experts to fix domain weak spots before your actual corporate evaluation.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 text-brandAccent rounded-xl flex items-center justify-center font-bold text-lg mb-6">3</div>
+                    <h3 class="text-xl font-bold text-brandPrimary mb-3">Direct Match Delivery</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Once you hit our performance criteria benchmark, your profile passes directly to corporate hiring portals for priority mapping.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Partner Corporate Targets (Focusing explicitly on TCS and Wipro targets) -->
+    <section id="companies" class="py-20 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h4 class="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-8">Target Deployment Chains</h4>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-75 grayscale hover:grayscale-0 transition-all">
+                <!-- Text-based high fidelity logo indicators matching requested companies -->
+                <span class="text-3xl font-extrabold tracking-tight text-slate-700">TCS</span>
+                <span class="text-3xl font-extrabold tracking-tight text-slate-700">WIPRO</span>
+                <span class="text-3xl font-extrabold tracking-tight text-slate-700">INFOSYS</span>
+                <span class="text-3xl font-extrabold tracking-tight text-slate-700">COGNIZANT</span>
+                <span class="text-3xl font-extrabold tracking-tight text-slate-700">HCL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Form Submission Layout -->
+    <section id="register" class="py-24 bg-slate-900 text-white relative">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Ready to Start Your Interview Journey?</h2>
+            <p class="mx-auto mt-4 max-w-xl text-lg text-slate-300">Submit your profile to the Until You Learn recruitment portal dashboard. Our assessment desk will contact you within 24 working hours.</p>
+            
+            <form action="../../index.html#contact-section" method="POST" class="mt-10 max-w-md mx-auto grid grid-cols-1 gap-4 text-left">
+    <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Full Name</label>
+        <input type="text" placeholder="John Doe" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandAccent text-sm transition">
+    </div>
+    <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Email Address</label>
+        <input type="email" placeholder="john@example.com" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandAccent text-sm transition">
+    </div>
+    
+    <button type="submit" class="w-full bg-brandAccent text-white text-sm font-semibold py-4 rounded-xl hover:bg-blue-700 transition mt-2 shadow-lg shadow-blue-600/20">
+        Apply for Verification
+    </button>
+</form>
+        </div>
+    </section>
+
+    <!-- 7. Structural Footer Component -->
+    <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p>&copy; 2026 Until You Learn. All rights reserved. Recruitment Solutions Division.</p>
+            <div class="flex space-x-6 text-slate-500">
+                <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

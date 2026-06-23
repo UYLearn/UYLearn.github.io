@@ -190,6 +190,15 @@
     <div class="container">
         <h2 class="section-title">Courses We Offer</h2>
         <div class="course-grid">
+          <a href="Courses/Recruitment/RecruitIndex.html" class="course-card-link">
+    <div class="course-card">
+        <img src="img/rec.png" alt="Job Recruitment">
+        <h3>Job Recruitment</h3>
+        <p>Connecting talent with companies as a trusted hiring partner.</p>
+        <span class="learn-more">Learn More</span>
+    </div>
+</a>
+
             <a href="Courses/Cloud/CLindex.html" class="course-card-link">
                 <div class="course-card">
                     <img src="img/Cloud.jpeg" alt="Cloud Computing">
@@ -719,16 +728,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
    <!-- Popup Container -->
 <!-- Excel Course Popup -->
-<div id="excelPopup" class="popup-overlay">
+<div id="recruitPopup" class="popup-overlay">
   <div class="popup-content">
     <!-- Close Button -->
-    <button class="close-btn" onclick="closePopup()" aria-label="Close popup">&times;</button>
+    <button class="close-btn" onclick="closeRecruitPopup()" aria-label="Close popup">&times;</button>
 
     <!-- Header -->
     <div class="popup-header">
-      <h2 class="popup-title">📊 Microsoft Excel Masterclass</h2>
+      <h2 class="popup-title">🤝 Job Recruitment Service</h2>
       <p class="popup-tagline">
-        Master Excel skills to boost your productivity and career growth.
+        🚀 We have recently launched this service to connect talented individuals with companies, acting as a trusted hiring mediator just like TCS.
       </p>
     </div>
 
@@ -736,27 +745,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="popup-body">
       <!-- Left Image -->
       <div class="popup-image">
-        <img src="excel.png" alt="Excel Training" class="popup-img" />
+        <img src="img/rety.png" alt="Job Recruitment" class="popup-img" />
       </div>
 
       <!-- Right Text Section -->
       <div class="popup-text-section">
         <ul class="popup-benefits">
-          <li>For Freshers as well as Experienced Professionals</li>
-          <li>Data Cleaning Techniques</li>
-          <li>Conditional Formatting & Data Validation</li>
-          <li>Lookup Functions (VLOOKUP, XLOOKUP, INDEX-MATCH)</li>
-          <li>Error Handling & Formula Debugging</li>
-          <li>Working with Large Data Efficiently</li>
-          <li>Shortcut Keys for Faster Navigation</li>
+          <li>Helping freshers and experienced professionals find the right opportunities</li>
+          <li>Acting as a bridge between candidates and companies</li>
+          <li>Streamlined recruitment process for faster placements</li>
+          <li>Trusted mediator service ensuring transparency</li>
+          <li>Building long-term career partnerships</li>
         </ul>
 
-        <h3 class="popup-highlight">📅 Batch Starts Soon</h3>
-        <a href="Courses/Data-Science/DScience.html#skills" class="cta-button">Join Now</a>
+        <h3 class="popup-highlight">📅 Recruitment Drive Starts Soon</h3>
+        <a href="Courses/Recruitment/RecruitIndex.html" class="cta-button">Join Now</a>
 
         <div class="popup-contact">
           📧 info@untilyoulearn.com <br />
-          📞 +91 9220698666
+          📞 <a href="tel:+919220698666">+91 9220698666</a>
         </div>
       </div>
     </div>
@@ -764,20 +771,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 </div>
 
 <script>
+const recruitPopup = document.getElementById("recruitPopup");
 
-const popup = document.getElementById("excelPopup");
-
-function openPopup() {
-  popup.classList.add("active");
+function openRecruitPopup() {
+  recruitPopup.classList.add("active");
 }
 
-function closePopup() {
-  popup.classList.remove("active");
+function closeRecruitPopup() {
+  recruitPopup.classList.remove("active");
 }
 
 // Auto-open popup after 4 seconds
-setTimeout(openPopup, 4000);
+setTimeout(openRecruitPopup, 4000);
 </script>
+
 
   <div id="notifBanner" class="notification-banner">
   <span id="banner-text"></span>
