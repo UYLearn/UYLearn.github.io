@@ -728,67 +728,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
    <!-- Popup Container -->
 <!-- Excel Course Popup -->
-<div id="recruitPopup" class="popup-overlay">
-  <div class="popup-content">
-    <!-- Close Button -->
-    <button class="close-btn" onclick="closeRecruitPopup()" aria-label="Close popup">&times;</button>
 
-    <!-- Header -->
-    <div class="popup-header">
-      <h2 class="popup-title">🤝 Job Recruitment Service</h2>
-      <p class="popup-tagline">
-        🚀 We have recently launched this service to connect talented individuals with companies, acting as a trusted hiring mediator just like TCS.
-      </p>
-    </div>
-
-    <!-- Body: Image Left, Text Right -->
-    <div class="popup-body">
-      <!-- Left Image -->
-      <div class="popup-image">
-        <img src="img/rety.png" alt="Job Recruitment" class="popup-img" />
-      </div>
-
-      <!-- Right Text Section -->
-      <div class="popup-text-section">
-        <ul class="popup-benefits">
-          <li>Helping freshers and experienced professionals find the right opportunities</li>
-          <li>Acting as a bridge between candidates and companies</li>
-          <li>Streamlined recruitment process for faster placements</li>
-          <li>Trusted mediator service ensuring transparency</li>
-          <li>Building long-term career partnerships</li>
-        </ul>
-
-        <h3 class="popup-highlight">📅 Recruitment Drive Starts Soon</h3>
-        <a href="Courses/Recruitment/RecruitIndex.html" class="cta-button">Join Now</a>
-
-        <div class="popup-contact">
-          📧 info@untilyoulearn.com <br />
-          📞 <a href="tel:+919220698666">+91 9220698666</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-const recruitPopup = document.getElementById("recruitPopup");
-
-function openRecruitPopup() {
-  recruitPopup.classList.add("active");
-}
-
-function closeRecruitPopup() {
-  recruitPopup.classList.remove("active");
-}
-
-// Auto-open popup after 4 seconds
-setTimeout(openRecruitPopup, 4000);
-</script>
-
-
-  <div id="notifBanner" class="notification-banner">
-  <span id="banner-text"></span>
-</div>
 
 <script>
   // ---------------- Notification Popup ----------------
